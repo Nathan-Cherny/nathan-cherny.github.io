@@ -462,6 +462,12 @@ a {
   text-decoration: underline;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--brand-blue);
+  outline-offset: 2px;
+}
+
 a:hover,
 a:focus {
   text-decoration: none;
@@ -861,7 +867,6 @@ input[type="submit"] {
   padding: 1.1em 1.44em;
   text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
   transition: opacity 0.15s linear;
 }
 
@@ -2779,6 +2784,18 @@ h2.entry-title {
 
 /* CUSTOM COLORS */
 
+:root {
+  --brand-blue: #047eb3;
+  --brand-blue-dark: #035f87;
+  --brand-ink: #1c1f24;
+  --brand-gray: #5f6772;
+  --brand-tint: #f4f8fb;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --shadow-soft: 0 10px 30px rgba(16, 42, 67, 0.08);
+  --shadow-hover: 0 16px 40px rgba(16, 42, 67, 0.14);
+}
+
 :root .has-accent-background-color {
   background-color: #cd2653;
   color: #fff;
@@ -3097,6 +3114,8 @@ ol.wp-block-latest-comments {
 }
 
 .is-style-outline .wp-block-button__link {
+  transition: all 0.5s;
+  transition-duration: 0.5s;
   border: 2px solid;
   padding: calc(1.1em - 0.2rem) calc(1.44em - 0.2rem);
 }
@@ -3293,7 +3312,7 @@ figure.wp-block-gallery.alignfull {
   max-width: calc(100% - 4rem);
 }
 
-.wp-block-pullquote::before {
+/* .wp-block-pullquote::before {
   background: #fff;
   border-radius: 50%;
   color: #cd2653;
@@ -3306,12 +3325,12 @@ figure.wp-block-gallery.alignfull {
   text-align: center;
   height: 4.4rem;
   width: 4.4rem;
-}
+} */
 
-.reduced-spacing .wp-block-pullquote::before {
+/* .reduced-spacing .wp-block-pullquote::before {
   border: 0.1rem solid currentColor;
   font-size: 5.9rem;
-}
+} */
 
 .wp-block-pullquote blockquote {
   border: none;
@@ -3326,6 +3345,14 @@ figure.wp-block-gallery.alignfull {
   line-height: 1.178571429;
   letter-spacing: -0.041785714em;
   max-width: 100%;
+}
+
+.wp-block-pullquote img {
+  border-radius: 100%;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+  /* padding: 100px; */
 }
 
 .wp-block-pullquote p:last-of-type {
@@ -3724,6 +3751,31 @@ figure.wp-block-table.is-style-stripes {
   }
 }
 
+/* ---------- 5. Alternating content rows → cards with rhythm ---------- */
+.entry-content > .wp-block-columns.alignwide {
+  padding: 3rem 2.5rem;
+  border-radius: var(--radius-lg);
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.entry-content > .wp-block-columns.alignwide:nth-of-type(even) {
+  background: var(--brand-tint);
+}
+
+.entry-content .wp-block-column img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.entry-content .wp-block-column img:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
 /* Alignment Classes ------------------------- */
 
 .entry-content
@@ -3853,6 +3905,99 @@ figure.wp-block-table.is-style-stripes {
   max-width: 58rem;
   width: calc(100% - 4rem);
 }
+
+/* Custom Elements */
+
+.wp-block-button__link {
+  border-radius: 999px !important;
+  padding: 0.9em 1.9em !important;
+  font-weight: 600;
+  font-size: 0.98rem;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+.wp-block-button__link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Primary CTA — first button in the hero */
+.hero-buttons .wp-block-button:first-child .wp-block-button__link {
+  background: var(--brand-blue);
+  color: #fff;
+}
+
+.hero-buttons .wp-block-button:first-child .wp-block-button__link:hover {
+  background: var(--brand-blue-dark);
+}
+
+/* Secondary CTA — becomes a ghost/outline button */
+.hero-buttons .wp-block-button:last-child .wp-block-button__link {
+  background: transparent !important;
+  color: var(--brand-blue) !important;
+  border: 2px solid var(--brand-blue);
+  box-shadow: none;
+}
+
+.hero-buttons .wp-block-button:last-child .wp-block-button__link:hover {
+  background: var(--brand-tint) !important;
+}
+
+.eyebrow {
+    display: inline-block;
+    background: var(--brand-tint);
+    color: var(--brand-blue-dark);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.4em 0.9em;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+/* ---------- Hero section ---------- */
+.hero-columns {
+  padding: 4rem 0 !important;
+  gap: 3rem;
+}
+
+.hero-text-column p {
+  max-width: 46ch;
+}
+
+.hero-image-column img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-hover);
+}
+
+.wp-block-group.alignfull.has-background {
+  border-radius: var(--radius-lg);
+  max-width: calc(100% - 4rem);
+  margin: 3rem auto !important;
+  padding: 2.5rem 2rem !important;
+}
+
+.wp-block-group.alignfull.has-background .wp-block-heading {
+  color: #fff !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.wp-block-group.alignfull.has-background .wp-block-button__link {
+  background-color: #fff !important;
+  color: var(--brand-ink) !important;
+  padding: 20px !important;
+  font-weight: 700;
+}
+
+.wp-block-group.alignfull.has-background .wp-block-button__link:hover {
+  background-color: var(--brand-tint) !important;
+}
+
 /* -------------------------------------------------------------------------- */
 
 /*	12. Comments
@@ -4525,10 +4670,18 @@ div.comment:first-of-type {
 
 .footer-nav-widgets-wrapper,
 #site-footer {
-  background-color: #fff;
-  border-color: #dedfdf;
-  border-style: solid;
-  border-width: 0;
+  background: var(--brand-ink);
+  color: #cfd6de;
+  padding-top: 3rem;
+}
+
+#site-footer a {
+  color: #fff;
+  transition: color 0.15s ease;
+}
+
+#site-footer a:hover {
+  color: var(--brand-blue);
 }
 
 .footer-top-visible .footer-nav-widgets-wrapper,
@@ -6661,9 +6814,15 @@ a.to-the-top > * {
     margin-right: -31rem;
   }
 
-  .entry-content > .alignwide {
+  /* .entry-content > .alignwide {
     max-width: 120rem;
     width: 120rem;
+  } */
+
+  .wp-block-column{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
   }
 
   [class*="__inner-container"] > .alignwide {
