@@ -73,6 +73,31 @@
   height: 380px !important;
 }
 
+/* Make every slide fill the full height of the carousel, and scale each
+   image down to fit inside it completely (object-fit: contain) instead
+   of being cropped or stretched. Portrait and landscape screenshots will
+   both be fully visible, letterboxed on the narrow axis as needed. */
+.hero-carousel-column .swiper-wrapper,
+.hero-carousel-column .swiper-slide {
+  height: 100%;
+}
+
+.hero-carousel-column .coblocks-gallery--item,
+.hero-carousel-column .coblocks-gallery--figure {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-carousel-column .coblocks-gallery--figure img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit:scale-down !important;
+}
+
 /* Stack vertically on smaller screens instead of squeezing side-by-side */
 @media screen and (max-width: 900px) {
   .hero-columns.wp-block-columns {
@@ -259,17 +284,16 @@
 .sheets-ring-column {
   display: flex;
   justify-content: center;
-  margin-top: -25px;
 }
 
 .sheets-ring {
   flex-direction: column;
+  margin-top: -50px;
   width: 250px;
   height: 250px;
   position: relative;
-  border: 2px dashed rgba(34, 197, 94, 0.4);
+  border: 2px dashed rgba(2, 34, 14, 0.4);
   border-radius: 50%;
-  background-image: linear-gradient(35deg, rgba(0, 0, 0, 0.5), rgba(50, 50, 0, 0.5));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -291,14 +315,14 @@
 }
 
 .ring-center span {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
-  color: #ffffff;
   margin-top: 5px;
 }
 
 .ring-icon img {
   width: 24px;
+  border-radius: 0px !important;
   height: 24px;
   object-fit: contain;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -539,7 +563,6 @@
 .testimonial-quote {
   font-size: 2.5rem;
   font-family: 'Inter var';
-  color: #000000;
   border-left: 3px solid #00f0ff;
   padding-left: 20px;
   font-style: italic;
@@ -555,7 +578,6 @@
   font-size: 14px;
   font-weight: 700;
   font-style: normal;
-  text-transform: uppercase;
   color: #94a3b8;
   margin-top: 15px;
 }
@@ -574,9 +596,8 @@
 }
 
 .testimonial-avatar {
-  /* padding: 100px; */
-  max-width: 150px;
-  max-height: 150px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -597,43 +618,6 @@
     padding-left: 0;
     padding-top: 18px;
   }
-}
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-.site-footer {
-  background-color: #000000;
-  padding: 80px 4% 40px 4%;
-  text-align: center;
-}
-.site-footer h2 {
-  font-size: 32px;
-  margin-bottom: 16px;
-}
-.site-footer p {
-  color: #94a3b8;
-  font-size: 16px;
-  margin-bottom: 30px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.contact-details p {
-  margin-bottom: 8px;
-  color: #e2e8f0;
-}
-
-.footer-bottom {
-  margin-top: 60px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 14px;
-  color: #64748b;
-}
-.sub-footer {
-  font-size: 12px;
-  margin-top: 8px;
 }
 
 /* ==========================================================================

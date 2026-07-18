@@ -2788,6 +2788,7 @@ h2.entry-title {
   --brand-blue: #047eb3;
   --brand-blue-dark: #035f87;
   --brand-ink: #1c1f24;
+  --brand-light-ink: #2f3a4d;
   --brand-gray: #5f6772;
   --brand-tint: #f4f8fb;
   --radius-lg: 18px;
@@ -3256,6 +3257,17 @@ figure.wp-block-gallery.alignwide {
 figure.wp-block-gallery.alignfull {
   margin-bottom: 5rem;
   margin-top: 5rem;
+}
+
+.wp-block-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wp-block-image img{
+  max-width: 500px;
+  max-height: 500px;
 }
 
 /* Block: Group ------------------------------ */
@@ -4667,10 +4679,8 @@ div.comment:first-of-type {
 /*	16. Site Footer
 /* -------------------------------------------------------------------------- */
 
-.footer-nav-widgets-wrapper,
-#site-footer {
-  background: var(--brand-ink);
-  color: #cfd6de;
+.footer-nav-widgets-wrapper {
+  background: var(--brand-light-ink) !important;
   padding-top: 3rem;
 }
 
@@ -5993,6 +6003,8 @@ a.to-the-top > * {
   /* FOOTER BOTTOM */
 
   #site-footer {
+    background-color: inherit !important;
+    color: white;
     font-size: 1.8rem;
     padding: 4.3rem 0;
   }
