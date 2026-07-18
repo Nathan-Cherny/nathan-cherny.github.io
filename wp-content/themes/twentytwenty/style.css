@@ -3771,18 +3771,13 @@ figure.wp-block-table.is-style-stripes {
     box-shadow 0.2s ease;
 }
 
-.entry-content .wp-block-column img:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-}
-
 /* Alignment Classes ------------------------- */
 
 .entry-content
   > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(
     .is-style-wide
   ) {
-  max-width: 58rem;
+  /* max-width: 58rem; */
   width: calc(100% - 4rem);
 }
 
@@ -3964,10 +3959,6 @@ figure.wp-block-table.is-style-stripes {
 .hero-columns {
   padding: 4rem 0 !important;
   gap: 3rem;
-}
-
-.hero-text-column p {
-  max-width: 46ch;
 }
 
 .hero-image-column img {

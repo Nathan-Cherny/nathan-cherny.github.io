@@ -15,7 +15,86 @@
 
 
 /* ==========================================================================
-   Hero Section
+   Hero Columns — text + carousel side-by-side
+   Fix: the carousel block used to carry "alignfull", which forces
+   width: 100vw and breaks it out of the flex row, crushing the text
+   column down to ~0px (that's what caused the vertical letter-wrapping).
+   The HTML has been updated to drop "alignfull" and wrap the carousel
+   in its own .hero-carousel-column; these rules control the split.
+   ========================================================================== */
+
+.hero-columns.wp-block-columns {
+  display: flex !important;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 60px 4% !important;
+}
+
+.hero-text-column {
+  flex: 0 0 44%;
+  max-width: 44%;
+}
+
+.hero-text-column h1 {
+  font-size: 3rem;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.hero-text-column p {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+}
+
+.hero-carousel-column {
+  flex: 0 0 56%;
+  max-width: 56%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.hero-carousel-column .wp-block-coblocks-gallery-carousel {
+  width: 100%;
+}
+
+.hero-carousel-column .coblocks-gallery-carousel-swiper-container {
+  width: 100% !important;
+}
+
+/* The swiper JS sets an inline height (450px) directly on this element,
+   which beats normal CSS specificity — !important is needed to shrink it. */
+.hero-carousel-column .has-carousel {
+  height: 380px !important;
+}
+
+/* Stack vertically on smaller screens instead of squeezing side-by-side */
+@media screen and (max-width: 900px) {
+  .hero-columns.wp-block-columns {
+    flex-direction: column;
+    padding: 40px 5% !important;
+  }
+
+  .hero-text-column,
+  .hero-carousel-column {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .hero-carousel-column .has-carousel {
+    height: 280px !important;
+  }
+}
+
+
+/* ==========================================================================
+   Hero Section (legacy — not used by current .hero-columns layout above,
+   left in place in case other pages still reference it)
    ========================================================================== */
 .hero-section {
   /* background: linear-gradient(180deg, #001220 0%, #001f36 100%); */
@@ -458,11 +537,12 @@
 
 /* Testimonials */
 .testimonial-quote {
-  font-size: 18px;
-  font-style: italic;
-  color: #e2e8f0;
+  font-size: 2.5rem;
+  font-family: 'Inter var';
+  color: #000000;
   border-left: 3px solid #00f0ff;
   padding-left: 20px;
+  font-style: italic;
 }
 .testimonial-embed-img {
   width: 100%;
@@ -478,6 +558,45 @@
   text-transform: uppercase;
   color: #94a3b8;
   margin-top: 15px;
+}
+
+/* Side-by-side testimonial card (photo + quote), built on top of the
+   existing .testimonial-quote / cite styles above. */
+.testimonial-card {
+  display: flex;
+  align-items: center;
+  margin: 2% auto;
+  gap: 10%;
+}
+
+.testimonial-card .testimonial-quote {
+  margin: 0;
+}
+
+.testimonial-avatar {
+  /* padding: 100px; */
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(0, 240, 255, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 600px) {
+  .testimonial-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .testimonial-card .testimonial-quote {
+    border-left: none;
+    border-top: 3px solid #00f0ff;
+    padding-left: 0;
+    padding-top: 18px;
+  }
 }
 
 /* ==========================================================================
