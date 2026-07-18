@@ -3151,6 +3151,10 @@ ol.wp-block-latest-comments {
   margin-bottom: 3.2rem;
 }
 
+/* .wp-block-column:hover {
+  box-shadow: 2px 2px 5px gray;
+} */
+
 .wp-block-column > *:first-child {
   margin-top: 0;
 }
@@ -3349,9 +3353,13 @@ figure.wp-block-gallery.alignfull {
 
 .wp-block-pullquote img {
   border-radius: 100%;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
+  margin: auto;
   margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid black;
+  width: fit-content
   /* padding: 100px; */
 }
 
@@ -5640,6 +5648,11 @@ a.to-the-top > * {
 
   .wp-block-pullquote cite {
     margin-top: 2rem;
+  }
+
+  .wp-block-pullquote small {
+    margin-top: 5px;
+    font-size: 12px
   }
 
   .wp-block-pullquote.alignfull:not(.is-style-solid-color) {
