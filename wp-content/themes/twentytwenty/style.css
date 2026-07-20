@@ -3266,8 +3266,9 @@ figure.wp-block-gallery.alignfull {
 }
 
 .wp-block-image img{
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 600px;
+  /* max-width: auto; */
+  max-height: 400px;
 }
 
 /* Block: Group ------------------------------ */
@@ -3784,8 +3785,8 @@ figure.wp-block-table.is-style-stripes {
 }
 
 .entry-content .wp-block-column img {
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-soft);
+  border-radius: 0px;
+  box-shadow: none;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -4007,6 +4008,14 @@ figure.wp-block-table.is-style-stripes {
 
 .wp-block-group.alignfull.has-background .wp-block-button__link:hover {
   background-color: var(--brand-tint) !important;
+}
+
+.info-section-block{
+  margin-left: 0;
+  margin-right: 0;
+  width: 100% !important;
+  border-radius: 0px !important;
+  max-width: 100% !important;
 }
 
 /* -------------------------------------------------------------------------- */
