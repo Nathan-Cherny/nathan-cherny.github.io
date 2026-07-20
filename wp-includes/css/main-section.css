@@ -26,6 +26,7 @@
 .hero-columns.wp-block-columns {
   display: flex !important;
   flex-wrap: nowrap;
+  justify-content: space-around;
   align-items: center;
   gap: 40px;
   width: 100%;
@@ -53,7 +54,7 @@
 
 .hero-carousel-column {
   flex: 0 0 56%;
-  max-width: 56%;
+  max-width: 45%;
   border-radius: 16px;
   overflow: hidden;
 }

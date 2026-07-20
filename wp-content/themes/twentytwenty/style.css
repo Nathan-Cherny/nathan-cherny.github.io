@@ -3774,7 +3774,7 @@ figure.wp-block-table.is-style-stripes {
 
 /* ---------- 5. Alternating content rows → cards with rhythm ---------- */
 .entry-content > .wp-block-columns.alignwide {
-  padding: 3rem 2.5rem;
+  padding: 3rem 5rem;
   border-radius: var(--radius-lg);
   margin-top: 1.5rem !important;
   margin-bottom: 1.5rem !important;
