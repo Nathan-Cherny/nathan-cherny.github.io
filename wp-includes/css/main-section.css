@@ -29,10 +29,9 @@
   align-items: center;
   gap: 40px;
   width: 100%;
-  max-width: 1400px;
   margin-left: auto !important;
   margin-right: auto !important;
-  padding: 60px 4% !important;
+  padding: 10px 4% !important;
 }
 
 .hero-text-column {
