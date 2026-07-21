@@ -421,20 +421,26 @@ for root, dirs, files in os.walk(directory):
 
 
 for fileName in file_paths:
+    
+    path = fileName.split("\\")[-2]
 
     with open(fileName, "r", encoding="utf-8") as file:
         htmlContent = file.read()
 
-        headerFirstLine = """<header id="site-header" class="header-footer-group">"""
-        header = headerFirstLine + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
+        print(path)
+        print([i for i in htmlContent.split("\n") if f"<a href=\"/{path}/\"" in i])
 
-        htmlContent = htmlContent.replace(header, newHeader)
+    #     headerFirstLine = """<header id="site-header" class="header-footer-group">"""
+    #     header = headerFirstLine + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
 
-        footerFirstLine = "<!-- #site-content -->"
-        footerLastLine = "<!-- #site-footer -->"
+    #     htmlContent = htmlContent.replace(header, newHeader)
+
+    #     footerFirstLine = "<!-- #site-content -->"
+    #     footerLastLine = "<!-- #site-footer -->"
         
-        footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0] + footerLastLine
+    #     footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0] + footerLastLine
         
-        htmlContent = htmlContent.replace(footer, newFooter)
-    with open(fileName, "w", encoding="utf-8") as file:
-        file.write(htmlContent)
+    #     htmlContent = htmlContent.replace(footer, newFooter)
+
+    # with open(fileName, "w", encoding="utf-8") as file:
+    #     file.write(htmlContent)
