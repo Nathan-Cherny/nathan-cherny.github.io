@@ -3152,6 +3152,11 @@ ol.wp-block-latest-comments {
   margin-bottom: 3.2rem;
 }
 
+.wp-block-columns{
+  display: flex;
+  justify-content: space-between;
+}
+
 /* .wp-block-column:hover {
   box-shadow: 2px 2px 5px gray;
 } */
@@ -3266,8 +3271,9 @@ figure.wp-block-gallery.alignfull {
 }
 
 .wp-block-image img {
-  max-width: 50%;
-  max-height: 300px;
+  /* max-width: 50%; */
+  /* max-height: 600px; */
+  max-height: 50%;
 }
 
 /* Block: Group ------------------------------ */
@@ -3953,11 +3959,12 @@ figure.wp-block-table.is-style-stripes {
 
 /* Secondary CTA — becomes a ghost/outline button */
 .hero-buttons .wp-block-button:last-child .wp-block-button__link {
-  background: transparent !important;
-  color: var(--brand-blue) !important;
+  /* background: transparent !important; */
+  /* color: var(--brand-blue) !important; */
   border: 2px solid var(--brand-blue);
   box-shadow: none;
 }
+
 
 .hero-buttons .wp-block-button:last-child .wp-block-button__link:hover {
   background: var(--brand-tint) !important;
@@ -4991,11 +4998,11 @@ a.to-the-top > * {
   a,
   h2,
   h3{
-    font-size: 1.5rem !important;
+    font-size: 1.6rem !important;
   }
 
   h5{
-    font-size: 1.6rem !important;
+    font-size: 1.8rem !important;
   }
 
   h1, h2, h3, h4 {
