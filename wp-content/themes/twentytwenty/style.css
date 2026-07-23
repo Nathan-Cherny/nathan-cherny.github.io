@@ -4991,7 +4991,11 @@ a.to-the-top > * {
   a,
   h2,
   h3{
-    font-size: 1.65rem !important;
+    font-size: 1.5rem !important;
+  }
+
+  h5{
+    font-size: 1.6rem !important;
   }
 
   h1, h2, h3, h4 {
@@ -5291,7 +5295,7 @@ a.to-the-top > * {
   }
 
   button.close-nav-toggle .toggle-text {
-    margin-right: 2.1rem;
+    margin-right: 1.5rem;
   }
 
   .modal-menu {
