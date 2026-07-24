@@ -141,7 +141,7 @@ newHeader = """
                     id="menu-item-177"
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-177"
                   >
-                    <a href="/about-2/">Our Story</a>
+                    <a href="/about/">Our Story</a>
                   </li>
                   <li
                     id="menu-item-65"
@@ -327,7 +327,7 @@ newHeader = """
                       class="menu-item menu-item-type-post_type menu-item-object-page menu-item-177"
                     >
                       <div class="ancestor-wrapper">
-                        <a href="/about-2/">Our Story</a>
+                        <a href="/about/">Our Story</a>
                       </div>
                       <!-- .ancestor-wrapper -->
                     </li>
@@ -449,14 +449,14 @@ for fileName in file_paths:
         headerFirstLine = """<header id="site-header" class="header-footer-group">"""
         header = headerFirstLine + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
 
-        htmlContent = htmlContent.replace(header, newHeader)
+        # htmlContent = htmlContent.replace(header, newHeader)
 
-        footerFirstLine = "<!-- #site-content -->"
-        footerLastLine = "<!-- #site-footer -->"
+        # footerFirstLine = "<!-- #site-content -->"
+        # footerLastLine = "<!-- #site-footer -->"
         
-        footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0] + footerLastLine
+        # footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0] + footerLastLine
         
-        htmlContent = htmlContent.replace(footer, newFooter)
+        # htmlContent = htmlContent.replace(footer, newFooter)
 
     with open(fileName, "w", encoding="utf-8") as file:
         file.write(htmlContent)
