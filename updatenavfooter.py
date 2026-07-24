@@ -443,13 +443,13 @@ for fileName in file_paths:
     with open(fileName, "r", encoding="utf-8") as file:
         htmlContent = file.read()
 
-        # print(path)
-        # print([i for i in htmlContent.split("\n") if f"<a href=\"/{path}/\"" in i])
+        print(path)
+        print([i for i in htmlContent.split("\n") if f"<a href=\"/{path}/\"" in i])
 
-        headerFirstLine = """<header id="site-header" class="header-footer-group">"""
-        header = headerFirstLine + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
+        # headerFirstLine = """<header id="site-header" class="header-footer-group">"""
+        # header = headerFirstLine + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
 
-        htmlContent = htmlContent.replace(header, newHeader)
+        # htmlContent = htmlContent.replace(header, newHeader)
 
         # footerFirstLine = "<!-- #site-content -->"
         # footerLastLine = "<!-- #site-footer -->"
@@ -458,5 +458,5 @@ for fileName in file_paths:
         
         # htmlContent = htmlContent.replace(footer, newFooter)
 
-    with open(fileName, "w", encoding="utf-8") as file:
-        file.write(htmlContent)
+    # with open(fileName, "w", encoding="utf-8") as file:
+    #     file.write(htmlContent)
