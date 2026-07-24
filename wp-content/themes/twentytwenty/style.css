@@ -4984,6 +4984,10 @@ a.to-the-top > * {
   .nav-partner-img {
     display: none !important;
   }
+
+  img{
+    max-width: 250px !important;
+  }
 }
 
 @media (max-width: 1500px) {
@@ -5007,6 +5011,10 @@ a.to-the-top > * {
 
   h1, h2, h3, h4 {
     font-size: 2rem !important;
+  }
+
+  img{
+    max-width: 400px !important;
   }
 }
 
