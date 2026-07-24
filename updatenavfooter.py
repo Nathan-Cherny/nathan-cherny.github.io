@@ -449,7 +449,7 @@ for fileName in file_paths:
         headerFirstLine = """<header id="site-header" class="header-footer-group">"""
         header = headerFirstLine + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
 
-        # htmlContent = htmlContent.replace(header, newHeader)
+        htmlContent = htmlContent.replace(header, newHeader)
 
         # footerFirstLine = "<!-- #site-content -->"
         # footerLastLine = "<!-- #site-footer -->"
