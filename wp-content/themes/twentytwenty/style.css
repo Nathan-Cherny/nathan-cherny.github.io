@@ -3275,7 +3275,7 @@ figure.wp-block-gallery.alignfull {
 
 .wp-block-image img {
   /* max-width: 50%; */
-  max-height: 500px;
+  max-height: 400px;
   /* max-height: 50%; */
 }
 
