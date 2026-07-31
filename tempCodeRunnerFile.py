@@ -122,6 +122,12 @@ newHeader = """
                 <a href="/request-a-demo/">Interest Form</a>
               </li>
               <li
+                id="menu-item-999"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
+              >
+                <a href="/how-we-work/">How We Work</a>
+              </li>
+              <li
                 id="menu-item-788"
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-788"
               >
@@ -280,6 +286,14 @@ newHeader = """
                   <!-- .ancestor-wrapper -->
                 </li>
                 <li
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
+                >
+                  <div class="ancestor-wrapper">
+                    <a href="/how-we-work/">How We Work</a>
+                  </div>
+                  <!-- .ancestor-wrapper -->
+                </li>
+                <li
                   class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-788"
                 >
                   <div class="ancestor-wrapper">
@@ -350,8 +364,7 @@ newHeader = """
         <!-- .menu-wrapper -->
       </div>
       <!-- .menu-modal-inner -->
-    </div>
-    <!-- .menu-modal -->
+      </div>
 """
 
 newFooter = """<!-- #site-content -->
@@ -410,9 +423,573 @@ newFooter = """<!-- #site-content -->
         </div>
         <!-- .section-inner -->
       </footer>
-      <!-- #site-footer -->
-    </div>
-    <!-- .footer-nav-widgets-wrapper -->"""
+      <!-- #site-footer -->"""
+
+newHead = """
+<head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="profile" href="https://gmpg.org/xfn/11" />
+
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <!-- Google tag (gtag.js) consent mode dataLayer added by Site Kit -->
+    <script id="google_gtagjs-js-consent-mode-data-layer">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        security_storage: "denied",
+        personalization_storage: "denied",
+        region: [
+          "AT",
+          "BE",
+          "BG",
+          "CH",
+          "CY",
+          "CZ",
+          "DE",
+          "DK",
+          "EE",
+          "ES",
+          "FI",
+          "FR",
+          "GB",
+          "GR",
+          "HR",
+          "HU",
+          "IE",
+          "IS",
+          "IT",
+          "LI",
+          "LT",
+          "LU",
+          "LV",
+          "MT",
+          "NL",
+          "NO",
+          "PL",
+          "PT",
+          "RO",
+          "SE",
+          "SI",
+          "SK",
+        ],
+        wait_for_update: 500,
+      });
+      window._googlesitekitConsentCategoryMap = {
+        statistics: ["analytics_storage"],
+        marketing: ["ad_storage", "ad_user_data", "ad_personalization"],
+        functional: ["functionality_storage", "security_storage"],
+        preferences: ["personalization_storage"],
+      };
+      window._googlesitekitConsents = {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        security_storage: "denied",
+        personalization_storage: "denied",
+        region: [
+          "AT",
+          "BE",
+          "BG",
+          "CH",
+          "CY",
+          "CZ",
+          "DE",
+          "DK",
+          "EE",
+          "ES",
+          "FI",
+          "FR",
+          "GB",
+          "GR",
+          "HR",
+          "HU",
+          "IE",
+          "IS",
+          "IT",
+          "LI",
+          "LT",
+          "LU",
+          "LV",
+          "MT",
+          "NL",
+          "NO",
+          "PL",
+          "PT",
+          "RO",
+          "SE",
+          "SI",
+          "SK",
+        ],
+        wait_for_update: 500,
+      };
+    </script>
+    <!-- End Google tag (gtag.js) consent mode dataLayer added by Site Kit -->
+
+    <!-- This site is optimized with the Yoast SEO plugin v21.9.1 - https://yoast.com/wordpress/plugins/seo/ -->
+    <title>xSoTec - District wide solutions built on Google Sheets</title>
+    <meta
+      name="description"
+      content="Build competency-based, restorative behavior, learner profile systems, and more. xSoTec helps you create district-wide solutions specifically for your organization."
+    />
+    <link rel="canonical" href="/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="xSoTec - District wide solutions built on Google Sheets"
+    />
+    <meta
+      property="og:description"
+      content="Build competency-based, restorative behavior, learner profile systems, and more. xSoTec helps you create district-wide solutions specifically for your organization."
+    />
+    <meta property="og:url" content="/" />
+    <meta property="og:site_name" content="xSoTec" />
+    <meta
+      property="article:modified_time"
+      content="2025-03-19T16:05:17+00:00"
+    />
+    <meta
+      property="og:image"
+      content="/wp-content/uploads/2024/01/GfE-Partner-Badges-Horizontal.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" class="yoast-schema-graph">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "/",
+            "url": "/",
+            "name": "xSoTec - District wide solutions built on Google Sheets",
+            "isPartOf": { "@id": "/#website" },
+            "about": { "@id": "/#organization" },
+            "primaryImageOfPage": { "@id": "/#primaryimage" },
+            "image": { "@id": "/#primaryimage" },
+            "thumbnailUrl": "/wp-content/uploads/2024/01/GfE-Partner-Badges-Horizontal.png",
+            "datePublished": "2023-02-21T16:20:27+00:00",
+            "dateModified": "2025-03-19T16:05:17+00:00",
+            "description": "Build competency-based, restorative behavior, learner profile systems, and more. xSoTec helps you create district-wide solutions specifically for your organization.",
+            "breadcrumb": { "@id": "/#breadcrumb" },
+            "inLanguage": "en-US",
+            "potentialAction": [{ "@type": "ReadAction", "target": ["/"] }]
+          },
+          {
+            "@type": "ImageObject",
+            "inLanguage": "en-US",
+            "@id": "/#primaryimage",
+            "url": "/wp-content/uploads/2024/01/GfE-Partner-Badges-Horizontal.png",
+            "contentUrl": "/wp-content/uploads/2024/01/GfE-Partner-Badges-Horizontal.png",
+            "width": 1043,
+            "height": 293
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "/#breadcrumb",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home" }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "/#website",
+            "url": "/",
+            "name": "xSoTec",
+            "description": "",
+            "publisher": { "@id": "/#organization" },
+            "potentialAction": [
+              {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "/?s={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              }
+            ],
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "Organization",
+            "@id": "/#organization",
+            "name": "xSoTec",
+            "url": "/",
+            "logo": {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "/#/schema/logo/image/",
+              "url": "/wp-content/uploads/2020/08/cropped-xSoTec-Logo-w-Name.png",
+              "contentUrl": "/wp-content/uploads/2020/08/cropped-xSoTec-Logo-w-Name.png",
+              "width": 3761,
+              "height": 2822,
+              "caption": "xSoTec"
+            },
+            "image": { "@id": "/#/schema/logo/image/" }
+          }
+        ]
+      }
+    </script>
+    <!-- / Yoast SEO plugin. -->
+
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//use.fontawesome.com" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="xSoTec » Feed"
+      href="/feed/"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="xSoTec » Comments Feed"
+      href="/comments/feed/"
+    />
+    <link
+      rel="alternate"
+      title="oEmbed (JSON)"
+      type="application/json+oembed"
+      href="/wp-json/oembed/1.0/embed?url=%2F"
+    />
+    <link
+      rel="alternate"
+      title="oEmbed (XML)"
+      type="text/xml+oembed"
+      href="/wp-json/oembed/1.0/embed?url=%2F&amp;format=xml"
+    />
+    <style id="wp-img-auto-sizes-contain-inline-css">
+      img:is([sizes="auto" i], [sizes^="auto," i]) {
+        contain-intrinsic-size: 3000px 1500px;
+      }
+      /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+    </style>
+    <style id="wp-emoji-styles-inline-css">
+      img.wp-smiley,
+      img.emoji {
+        display: inline !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: 1em !important;
+        width: 1em !important;
+        margin: 0 0.07em !important;
+        vertical-align: -0.1em !important;
+        background: none !important;
+        padding: 0 !important;
+      }
+      /*# sourceURL=wp-emoji-styles-inline-css */
+    </style>
+    <link
+      rel="stylesheet"
+      id="wp-block-library-css"
+      href="/wp-includes/css/dist/block-library/style.min.css?ver=6.9.4"
+      media="all"
+    />
+
+    <link
+      rel="stylesheet"
+      id="inline-css"
+      href="/wp-content/themes/plugins/inline.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="coblocks-frontend-css"
+      href="/wp-content/plugins/coblocks/dist/style-coblocks-1.css?ver=3.1.5"
+      media="all"
+    />
+
+    <link
+      rel="stylesheet"
+      id="coblocks-extensions-css"
+      href="/wp-content/plugins/coblocks/dist/style-coblocks-extensions.css?ver=3.1.5"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="coblocks-animation-css"
+      href="/wp-content/plugins/coblocks/dist/style-coblocks-animation.css?ver=d9b2b27566e6a2a85d1b"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="twentig-blocks-css"
+      href="/wp-content/plugins/twentig/dist/blocks/common.css?ver=f41e47526b76d38fc169"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="font-awesome-svg-styles-css"
+      href="/wp-content/uploads/font-awesome/v6.3.0/css/svg-with-js.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id=""
+      href="/wp-content/themes/plugins/fontawesome-global.css"
+      media="all"
+    />
+
+    <link
+      rel="stylesheet"
+      id="coblocks-block-fonts-css"
+      href="//fonts.googleapis.com/css?family=YrsaMontserratArvoIBM+Plex+Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CAsap%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7C&amp;ver=3.1.5"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="wp-components-css"
+      href="/wp-includes/css/dist/components/style.min.css?ver=6.9.4"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="godaddy-styles-css"
+      href="/wp-content/mu-plugins/vendor/wpex/godaddy-launch/includes/Dependencies/GoDaddy/Styles/build/latest.css?ver=2.0.2"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="twentytwenty-style-css"
+      href="/wp-content/themes/twentytwenty/style.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="twentytwenty-fonts-css"
+      href="/wp-content/themes/twentytwenty/assets/css/font-inter.css?ver=3.1"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="twentytwenty-print-style-css"
+      href="/wp-content/themes/twentytwenty/print.css?ver=3.1"
+      media="print"
+    />
+    <link
+      rel="stylesheet"
+      id="font-awesome-official-css"
+      href="https://use.fontawesome.com/releases/v6.3.0/css/all.css"
+      media="all"
+      integrity="sha384-nYX0jQk7JxCp1jdj3j2QdJbEJaTvTlhexnpMjwIkYQLdk9ZE3/g8CBw87XP2N0pR"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      id="twentig-twentytwenty-css"
+      href="/wp-content/plugins/twentig/dist/css/twentytwenty/style.css?ver=1.8"
+      media="all"
+    />
+    <style id="twentig-twentytwenty-inline-css">
+      ul.primary-menu,
+      ul.modal-menu > li .ancestor-wrapper a {
+        font-weight: 500;
+      }
+      body.has-header-opaque .primary-menu > li:not(.menu-button) > a,
+      body.has-header-opaque .primary-menu > li > .icon {
+        color: #047eb3;
+      }
+      :root .has-subtle-background-background-color {
+        background-color: #f2f2f2;
+      }
+      :root .has-subtle-background-color.has-text-color {
+        color: #f2f2f2;
+      }
+      /*# sourceURL=twentig-twentytwenty-inline-css */
+    </style>
+    <link
+      rel="stylesheet"
+      id="font-awesome-official-v4shim-css"
+      href="https://use.fontawesome.com/releases/v6.3.0/css/v4-shims.css"
+      media="all"
+      integrity="sha384-SQz6YOYE9rzJdPMcxCxNEmEuaYeT0ayZY/ZxArYWtTnvBwcfHI6rCwtgsOonZ+08"
+      crossorigin="anonymous"
+    />
+    <script
+      src="/wp-content/themes/twentytwenty/assets/js/index.js?ver=3.1"
+      id="twentytwenty-js-js"
+      defer
+      data-wp-strategy="defer"
+    ></script>
+    <script
+      src="/wp-content/plugins/twentig/dist/js/classic/twentig-twentytwenty.js?ver=1.0"
+      id="twentig-twentytwenty-js"
+    ></script>
+
+    <!-- Google tag (gtag.js) snippet added by Site Kit -->
+    <!-- Google Analytics snippet added by Site Kit -->
+    <!-- Google Ads snippet added by Site Kit -->
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=GT-MR2R5VG"
+      id="google_gtagjs-js"
+      async
+    ></script>
+    <script id="google_gtagjs-js-after">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("set", "linker", { domains: ["xsotec.com"] });
+      gtag("js", new Date());
+      gtag("set", "developer_id.dZTNiMT", true);
+      gtag("config", "GT-MR2R5VG");
+      gtag("config", "AW-11551650356");
+      window._googlesitekit = window._googlesitekit || {};
+      window._googlesitekit.throttledEvents = [];
+      window._googlesitekit.gtagEvent = (name, data) => {
+        var key = JSON.stringify({ name, data });
+        if (!!window._googlesitekit.throttledEvents[key]) {
+          return;
+        }
+        window._googlesitekit.throttledEvents[key] = true;
+        setTimeout(() => {
+          delete window._googlesitekit.throttledEvents[key];
+        }, 5);
+        gtag("event", name, { ...data, event_source: "site-kit" });
+      };
+      //# sourceURL=google_gtagjs-js-after
+    </script>
+    <link rel="https://api.w.org/" href="/wp-json/" />
+    <link
+      rel="alternate"
+      title="JSON"
+      type="application/json"
+      href="/wp-json/wp/v2/pages/977"
+    />
+    <link
+      rel="EditURI"
+      type="application/rsd+xml"
+      title="RSD"
+      href="/xmlrpc.php?rsd"
+    />
+    <link rel="shortlink" href="/" />
+    <meta name="generator" content="Site Kit by Google 1.182.0" />
+    <noscript
+      ><style>
+        .tw-block-animation {
+          opacity: 1;
+          transform: none;
+          clip-path: none;
+        }
+      </style></noscript
+    >
+    <script>
+      document.documentElement.className =
+        document.documentElement.className.replace("no-js", "js");
+      //# sourceURL=twentytwenty_no_js_class
+    </script>
+
+    <!-- Google AdSense meta tags added by Site Kit -->
+    <meta
+      name="google-adsense-platform-account"
+      content="ca-host-pub-2644536267352236"
+    />
+    <meta
+      name="google-adsense-platform-domain"
+      content="sitekit.withgoogle.com"
+    />
+    <!-- End Google AdSense meta tags added by Site Kit -->
+    <style id="custom-background-css">
+      body.custom-background {
+        background-color: #ffffff;
+      }
+    </style>
+
+    <!-- Google Tag Manager snippet added by Site Kit -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KL68LVZ");
+    </script>
+
+    <!-- End Google Tag Manager snippet added by Site Kit -->
+    <style id="uagb-style-conditional-extension">
+      @media (min-width: 1025px) {
+        body .uag-hide-desktop.uagb-google-map__wrap,
+        body .uag-hide-desktop {
+          display: none !important;
+        }
+      }
+      @media (min-width: 768px) and (max-width: 1024px) {
+        body .uag-hide-tab.uagb-google-map__wrap,
+        body .uag-hide-tab {
+          display: none !important;
+        }
+      }
+      @media (max-width: 767px) {
+        body .uag-hide-mob.uagb-google-map__wrap,
+        body .uag-hide-mob {
+          display: none !important;
+        }
+      }
+    </style>
+    <style id="uagb-style-frontend-977">
+      .uag-blocks-common-selector {
+        z-index: var(--z-index-desktop) !important;
+      }
+      @media (max-width: 976px) {
+        .uag-blocks-common-selector {
+          z-index: var(--z-index-tablet) !important;
+        }
+      }
+      @media (max-width: 767px) {
+        .uag-blocks-common-selector {
+          z-index: var(--z-index-mobile) !important;
+        }
+      }
+    </style>
+    <link
+      rel="icon"
+      href="/wp-content/uploads/2020/08/cropped-xSoTec-Logo-SQUARED-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="/wp-content/uploads/2020/08/cropped-xSoTec-Logo-SQUARED-192x192.png"
+      sizes="192x192"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/wp-content/uploads/2020/08/cropped-xSoTec-Logo-SQUARED-180x180.png"
+    />
+    <meta
+      name="msapplication-TileImage"
+      content="/wp-content/uploads/2020/08/cropped-xSoTec-Logo-SQUARED-270x270.png"
+    />
+    <link
+      rel="stylesheet"
+      id="custom-css"
+      href="/wp-content/themes/plugins/custom.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      id="main-section"
+      href="/wp-includes/css/main-section.css"
+      media="all"
+    />"""
 
 directory = "."
 extension = ".html"
@@ -433,6 +1010,7 @@ for fileName in file_paths:
     with open(fileName, "r", encoding="utf-8") as file:
         htmlContent = file.read()
 
+        # -- CURRENT-MENU-ITEM --
         # contentSplit = htmlContent.split("\n")
         # l = [contentSplit.index(i) - 2 for i in contentSplit if f"<a href=\"/{path}/\"" in i]
         # a = [i for i in l if "menu-item" in contentSplit[i]]
@@ -441,14 +1019,21 @@ for fileName in file_paths:
 
         # htmlContent = "\n".join(contentSplit)
 
+        # -- HEADER --
         headerFirstLine = """<header id="site-header" class="header-footer-group">"""
         header = headerFirstLine + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
 
         htmlContent = htmlContent.replace(header, newHeader)
 
+        # -- HEAD --
+        # headFirstLine = """<head>"""
+        # head = headFirstLine + htmlContent.split("</head>")[0].split(headFirstLine)[1]
+
+        # htmlContent = htmlContent.replace(head, newHead)
+
+        # -- FOOTER --
         # footerFirstLine = "<!-- #site-content -->"
         # footerLastLine = "<!-- #site-footer -->"
-        
         # footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0] + footerLastLine
         
         # htmlContent = htmlContent.replace(footer, newFooter)

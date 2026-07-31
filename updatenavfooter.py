@@ -122,6 +122,12 @@ newHeader = """
                 <a href="/request-a-demo/">Interest Form</a>
               </li>
               <li
+                id="menu-item-999"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
+              >
+                <a href="/how-we-work/">How We Work</a>
+              </li>
+              <li
                 id="menu-item-788"
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-788"
               >
@@ -280,6 +286,14 @@ newHeader = """
                   <!-- .ancestor-wrapper -->
                 </li>
                 <li
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
+                >
+                  <div class="ancestor-wrapper">
+                    <a href="/how-we-work/">How We Work</a>
+                  </div>
+                  <!-- .ancestor-wrapper -->
+                </li>
+                <li
                   class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-788"
                 >
                   <div class="ancestor-wrapper">
@@ -350,6 +364,7 @@ newHeader = """
         <!-- .menu-wrapper -->
       </div>
       <!-- .menu-modal-inner -->
+      </div>
 """
 
 newFooter = """<!-- #site-content -->
@@ -995,6 +1010,7 @@ for fileName in file_paths:
     with open(fileName, "r", encoding="utf-8") as file:
         htmlContent = file.read()
 
+        # -- CURRENT-MENU-ITEM --
         # contentSplit = htmlContent.split("\n")
         # l = [contentSplit.index(i) - 2 for i in contentSplit if f"<a href=\"/{path}/\"" in i]
         # a = [i for i in l if "menu-item" in contentSplit[i]]
@@ -1003,18 +1019,21 @@ for fileName in file_paths:
 
         # htmlContent = "\n".join(contentSplit)
 
-        # headerFirstLine = """<header id="site-header" class="header-footer-group">"""
-        # header = headerFirstLine + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
+        # -- HEADER --
+        headerFirstLine = """<header id="site-header" class="header-footer-group">"""
+        header = headerFirstLine + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
 
-        # htmlContent = htmlContent.replace(header, newHeader)
+        htmlContent = htmlContent.replace(header, newHeader)
 
-        headFirstLine = """<head>"""
-        head = headFirstLine + htmlContent.split("</head>")[0].split(headFirstLine)[1]
-        htmlContent = htmlContent.replace(head, newHead)
+        # -- HEAD --
+        # headFirstLine = """<head>"""
+        # head = headFirstLine + htmlContent.split("</head>")[0].split(headFirstLine)[1]
 
+        # htmlContent = htmlContent.replace(head, newHead)
+
+        # -- FOOTER --
         # footerFirstLine = "<!-- #site-content -->"
         # footerLastLine = "<!-- #site-footer -->"
-        
         # footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0] + footerLastLine
         
         # htmlContent = htmlContent.replace(footer, newFooter)
