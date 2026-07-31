@@ -1011,19 +1011,19 @@ for fileName in file_paths:
         htmlContent = file.read()
 
         # -- CURRENT-MENU-ITEM --
-        # contentSplit = htmlContent.split("\n")
-        # l = [contentSplit.index(i) - 2 for i in contentSplit if f"<a href=\"/{path}/\"" in i]
-        # a = [i for i in l if "menu-item" in contentSplit[i]]
-        # if len(a) == 0: continue
-        # contentSplit[a[0]] = contentSplit[a[0]].replace("class=\"", "class=\"current-menu-item ")
+        contentSplit = htmlContent.split("\n")
+        l = [contentSplit.index(i) - 2 for i in contentSplit if f"<a href=\"/{path}/\"" in i]
+        a = [i for i in l if "menu-item" in contentSplit[i]]
+        if len(a) == 0: continue
+        contentSplit[a[0]] = contentSplit[a[0]].replace("class=\"", "class=\"current-menu-item ")
 
-        # htmlContent = "\n".join(contentSplit)
+        htmlContent = "\n".join(contentSplit)
 
         # -- HEADER --
-        headerFirstLine = """<header id="site-header" class="header-footer-group">"""
-        header = headerFirstLine + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
+        # headerFirstLine = """<header id="site-header" class="header-footer-group">"""
+        # header = headerFirstLine + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
 
-        htmlContent = htmlContent.replace(header, newHeader)
+        # htmlContent = htmlContent.replace(header, newHeader)
 
         # -- HEAD --
         # headFirstLine = """<head>"""
