@@ -909,6 +909,11 @@ ul {
     column-gap: 32px;
   }
 }
+
+.is-content-justification-center{
+  justify-content: center;
+}
+
 /*# sourceURL=/wp-content/plugins/twentig/dist/blocks/columns/block.css */
 .wp-block-group {
   box-sizing: border-box;

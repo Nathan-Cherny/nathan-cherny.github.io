@@ -5706,6 +5706,11 @@ a.to-the-top > * {
     padding: 4rem;
   }
 
+  .wp-block-media-text__media {
+    display: flex;
+    justify-content: center;
+  }
+
   /* BLOCK: PULLQUOTE */
 
   .wp-block-pullquote blockquote p {
