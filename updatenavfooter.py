@@ -128,6 +128,12 @@ newHeader = """
                 <a href="/how-we-work/">How We Work</a>
               </li>
               <li
+                id="menu-item-999"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
+              >
+                <a href="/case-studies/">Case Studies</a>
+              </li>
+              <li
                 id="menu-item-788"
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-788"
               >
@@ -294,6 +300,14 @@ newHeader = """
                   <!-- .ancestor-wrapper -->
                 </li>
                 <li
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164"
+                >
+                  <div class="ancestor-wrapper">
+                    <a href="/case-studies/">Case Studies</a>
+                  </div>
+                  <!-- .ancestor-wrapper -->
+                </li>
+                <li
                   class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-788"
                 >
                   <div class="ancestor-wrapper">
@@ -377,7 +391,7 @@ newFooter = """<!-- #site-content -->
         <div class="footer-top has-footer-menu">
           <nav aria-label="Footer" class="footer-menu-wrapper">
             <ul class="footer-menu reset-list-style">
-              <li id="menu-item-1012" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-977 current_page_item menu-item-1012">
+              <li id="menu-item-1012" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-977 current_page_item menu-item-1012">
                 <a href="/">Home</a>
               </li>
               <li id="menu-item-827" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-827">
@@ -1004,7 +1018,7 @@ for root, dirs, files in os.walk(directory):
 
 
 for fileName in file_paths:
-    
+
     path = fileName.split("\\")[-2]
 
     with open(fileName, "r", encoding="utf-8") as file:
@@ -1012,16 +1026,26 @@ for fileName in file_paths:
 
         # -- CURRENT-MENU-ITEM --
         contentSplit = htmlContent.split("\n")
-        l = [contentSplit.index(i) - 2 for i in contentSplit if f"<a href=\"/{path}/\"" in i]
+        l = [
+            contentSplit.index(i) - 2
+            for i in contentSplit
+            if f'<a href="/{path}/"' in i
+        ]
         a = [i for i in l if "menu-item" in contentSplit[i]]
-        if len(a) == 0: continue
-        contentSplit[a[0]] = contentSplit[a[0]].replace("class=\"", "class=\"current-menu-item ")
+        if len(a) == 0:
+            continue
+        contentSplit[a[0]] = contentSplit[a[0]].replace(
+            'class="', 'class="current-menu-item '
+        )
 
         htmlContent = "\n".join(contentSplit)
 
         # -- HEADER --
         # headerFirstLine = """<header id="site-header" class="header-footer-group">"""
-        # header = headerFirstLine + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
+        # header = (
+        #     headerFirstLine
+        #     + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
+        # )
 
         # htmlContent = htmlContent.replace(header, newHeader)
 
@@ -1035,7 +1059,7 @@ for fileName in file_paths:
         # footerFirstLine = "<!-- #site-content -->"
         # footerLastLine = "<!-- #site-footer -->"
         # footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0] + footerLastLine
-        
+
         # htmlContent = htmlContent.replace(footer, newFooter)
 
     with open(fileName, "w", encoding="utf-8") as file:
