@@ -3736,10 +3736,8 @@ figure.wp-block-table.is-style-stripes {
 /* Font Families ----------------------------- */
 
 .entry-content {
-  font-family:
-    NonBreakingSpaceOverride, "Hoefler Text", "Noto Serif", Garamond,
-    "Times New Roman", serif;
   letter-spacing: normal;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 .entry-content h1,
