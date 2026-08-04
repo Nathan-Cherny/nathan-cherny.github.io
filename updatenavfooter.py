@@ -393,14 +393,17 @@ newFooter = """<!-- #site-content -->
               <li id="menu-item-1012" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-977 current_page_item menu-item-1012">
                 <a href="/">Home</a>
               </li>
-              <li id="menu-item-827" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-827">
-                <a href="/services/">Services</a>
-              </li>
               <li id="menu-item-999" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-999">
                 <a href="/custom-development/">Custom Development</a>
               </li>
               <li id="menu-item-975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975">
                 <a href="/transform-your-sheets/">Transform Your Sheets</a>
+              </li>
+              <li id="menu-item-975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975">
+                <a href="/how-we-work/">How We Work</a>
+              </li>
+              <li id="menu-item-975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975">
+                <a href="/about/">Our Story</a>
               </li>
               <li id="menu-item-828" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-828">
                 <a href="/request-a-demo/">Interest Form</a>
@@ -1024,20 +1027,20 @@ for fileName in file_paths:
         htmlContent = file.read()
 
         # -- CURRENT-MENU-ITEM --
-        contentSplit = htmlContent.split("\n")
-        l = [
-            contentSplit.index(i) - 2
-            for i in contentSplit
-            if f'<a href="/{path}/"' in i
-        ]
-        a = [i for i in l if "menu-item" in contentSplit[i]]
-        if len(a) == 0:
-            continue
-        contentSplit[a[0]] = contentSplit[a[0]].replace(
-            'class="', 'class="current-menu-item '
-        )
+        # contentSplit = htmlContent.split("\n")
+        # l = [
+        #     contentSplit.index(i) - 2
+        #     for i in contentSplit
+        #     if f'<a href="/{path}/"' in i
+        # ]
+        # a = [i for i in l if "menu-item" in contentSplit[i]]
+        # if len(a) == 0:
+        #     continue
+        # contentSplit[a[0]] = contentSplit[a[0]].replace(
+        #     'class="', 'class="current-menu-item '
+        # )
 
-        htmlContent = "\n".join(contentSplit)
+        # htmlContent = "\n".join(contentSplit)
 
         # -- HEADER --
         # headerFirstLine = """<header id="site-header" class="header-footer-group">"""
@@ -1055,11 +1058,11 @@ for fileName in file_paths:
         # htmlContent = htmlContent.replace(head, newHead)
 
         # -- FOOTER --
-        # footerFirstLine = "<!-- #site-content -->"
-        # footerLastLine = "<!-- #site-footer -->"
-        # footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0] + footerLastLine
+        footerFirstLine = "<!-- #site-content -->"
+        footerLastLine = "<!-- #site-footer -->"
+        footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0] + footerLastLine
 
-        # htmlContent = htmlContent.replace(footer, newFooter)
+        htmlContent = htmlContent.replace(footer, newFooter)
 
     with open(fileName, "w", encoding="utf-8") as file:
         file.write(htmlContent)
