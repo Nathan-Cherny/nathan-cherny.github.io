@@ -91,21 +91,21 @@ newHeader = """
                     id="menu-item-964"
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
                     >
-                    <a href="/advanced-spreadsheet-solutions/"
-                      >Advanced Spreadsheet Solutions</a
+                    <a href="/transform-your-sheets/"
+                      >Transform Your Sheets</a
                     >
                   </li>
                   <li
                     id=""
                     class="menu-item menu-item-type-post_type menu-item-object-page"
                   >
-                    <a href="/our-tools/">Build With Our Tools</a>
+                    <a href="/consolidate-data/">Unify Your System's Data</a>
                   </li>
                   <li
                     id=""
                     class="menu-item menu-item-type-post_type menu-item-object-page"
                   >
-                    <a href="/consolidate-data/">Unify Your System's Data</a>
+                    <a href="/our-tools/">Build With Our Tools</a>
                   </li>
                   <!-- <li
                     id="menu-item-1596"
@@ -255,18 +255,8 @@ newHeader = """
                       class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
                     >
                       <div class="ancestor-wrapper">
-                        <a href="/advanced-spreadsheet-solutions/"
-                          >Advanced Spreadsheet Solutions</a
-                        >
-                      </div>
-                      <!-- .ancestor-wrapper -->
-                    </li>
-                    <li
-                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
-                    >
-                      <div class="ancestor-wrapper">
-                        <a href="/our-tools/"
-                          >Build With Our Tools</a
+                        <a href="/transform-your-sheets/"
+                          >Transform Your Sheets</a
                         >
                       </div>
                       <!-- .ancestor-wrapper -->
@@ -277,6 +267,16 @@ newHeader = """
                       <div class="ancestor-wrapper">
                         <a href="/consolidate-data/"
                           >Unify Your System's Data</a
+                        >
+                      </div>
+                      <!-- .ancestor-wrapper -->
+                    </li>
+                    <li
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
+                    >
+                      <div class="ancestor-wrapper">
+                        <a href="/our-tools/"
+                          >Build With Our Tools</a
                         >
                       </div>
                       <!-- .ancestor-wrapper -->
@@ -305,7 +305,6 @@ newHeader = """
                   <div class="ancestor-wrapper">
                     <a href="/case-studies/">Case Studies</a>
                   </div>
-                  <!-- .ancestor-wrapper -->
                 </li>-->
                 <li
                   class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-788"
@@ -401,7 +400,7 @@ newFooter = """<!-- #site-content -->
                 <a href="/custom-development/">Custom Development</a>
               </li>
               <li id="menu-item-975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975">
-                <a href="/advanced-spreadsheet-solutions/">Advanced Spreadsheet Solutions</a>
+                <a href="/transform-your-sheets/">Transform Your Sheets</a>
               </li>
               <li id="menu-item-828" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-828">
                 <a href="/request-a-demo/">Interest Form</a>
@@ -1025,20 +1024,20 @@ for fileName in file_paths:
         htmlContent = file.read()
 
         # -- CURRENT-MENU-ITEM --
-        # contentSplit = htmlContent.split("\n")
-        # l = [
-        #     contentSplit.index(i) - 2
-        #     for i in contentSplit
-        #     if f'<a href="/{path}/"' in i
-        # ]
-        # a = [i for i in l if "menu-item" in contentSplit[i]]
-        # if len(a) == 0:
-        #     continue
-        # contentSplit[a[0]] = contentSplit[a[0]].replace(
-        #     'class="', 'class="current-menu-item '
-        # )
+        contentSplit = htmlContent.split("\n")
+        l = [
+            contentSplit.index(i) - 2
+            for i in contentSplit
+            if f'<a href="/{path}/"' in i
+        ]
+        a = [i for i in l if "menu-item" in contentSplit[i]]
+        if len(a) == 0:
+            continue
+        contentSplit[a[0]] = contentSplit[a[0]].replace(
+            'class="', 'class="current-menu-item '
+        )
 
-        # htmlContent = "\n".join(contentSplit)
+        htmlContent = "\n".join(contentSplit)
 
         # -- HEADER --
         # headerFirstLine = """<header id="site-header" class="header-footer-group">"""
