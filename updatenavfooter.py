@@ -127,12 +127,12 @@ newHeader = """
               >
                 <a href="/how-we-work/">How We Work</a>
               </li>
-              <li
+              <!-- <li
                 id="menu-item-999"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
               >
                 <a href="/case-studies/">Case Studies</a>
-              </li>
+              </li> -->
               <li
                 id="menu-item-788"
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-788"
@@ -299,14 +299,14 @@ newHeader = """
                   </div>
                   <!-- .ancestor-wrapper -->
                 </li>
-                <li
+                <!--<li
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164"
                 >
                   <div class="ancestor-wrapper">
                     <a href="/case-studies/">Case Studies</a>
                   </div>
                   <!-- .ancestor-wrapper -->
-                </li>
+                </li>-->
                 <li
                   class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-788"
                 >
