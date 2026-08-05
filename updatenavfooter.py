@@ -92,20 +92,20 @@ newHeader = """
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
                     >
                     <a href="/transform-your-sheets/"
-                      >Transform Your Sheets</a
+                      >Organize & Automate Your Sheets</a
                     >
                   </li>
                   <li
                     id=""
                     class="menu-item menu-item-type-post_type menu-item-object-page"
                   >
-                    <a href="/consolidate-data/">Unify Your System's Data</a>
+                    <a href="/consolidate-data/">Unify Your Disparate Data</a>
                   </li>
                   <li
                     id=""
                     class="menu-item menu-item-type-post_type menu-item-object-page"
                   >
-                    <a href="/our-tools/">Build With Our Tools</a>
+                    <a href="/our-tools/">Use Our Tools</a>
                   </li>
                   <!-- <li
                     id="menu-item-1596"
@@ -256,7 +256,7 @@ newHeader = """
                     >
                       <div class="ancestor-wrapper">
                         <a href="/transform-your-sheets/"
-                          >Transform Your Sheets</a
+                          >Organize & Automate Your Sheets</a
                         >
                       </div>
                       <!-- .ancestor-wrapper -->
@@ -276,7 +276,7 @@ newHeader = """
                     >
                       <div class="ancestor-wrapper">
                         <a href="/our-tools/"
-                          >Build With Our Tools</a
+                          >Use Our Tools</a
                         >
                       </div>
                       <!-- .ancestor-wrapper -->
@@ -378,6 +378,9 @@ newHeader = """
       </div>
       <!-- .menu-modal-inner -->
       </div>
+      <!--#site-header-end-->
+
+      
 """
 
 newFooter = """<!-- #site-content -->
@@ -397,7 +400,7 @@ newFooter = """<!-- #site-content -->
                 <a href="/custom-development/">Custom Development</a>
               </li>
               <li id="menu-item-975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975">
-                <a href="/transform-your-sheets/">Transform Your Sheets</a>
+                <a href="/transform-your-sheets/">Organize & Automate Your Sheets</a>
               </li>
               <li id="menu-item-975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975">
                 <a href="/how-we-work/">How We Work</a>
@@ -439,7 +442,10 @@ newFooter = """<!-- #site-content -->
         </div>
         <!-- .section-inner -->
       </footer>
-      <!-- #site-footer -->"""
+      <!-- #site-footer -->
+      </div>
+      <!-- .footer-nav-widgets-wrapper -->
+"""
 
 newHead = """
 <head>
@@ -1043,13 +1049,13 @@ for fileName in file_paths:
         # htmlContent = "\n".join(contentSplit)
 
         # -- HEADER --
-        # headerFirstLine = """<header id="site-header" class="header-footer-group">"""
-        # header = (
-        #     headerFirstLine
-        #     + htmlContent.split("<!-- #site-header -->")[0].split(headerFirstLine)[1]
-        # )
+        headerFirstLine = """<header id="site-header" class="header-footer-group">"""
+        header = (
+            headerFirstLine
+            + htmlContent.split("""<main id="site-content">""")[0].split(headerFirstLine)[1]
+        )
 
-        # htmlContent = htmlContent.replace(header, newHeader)
+        htmlContent = htmlContent.replace(header, newHeader)
 
         # -- HEAD --
         # headFirstLine = """<head>"""
@@ -1059,8 +1065,8 @@ for fileName in file_paths:
 
         # -- FOOTER --
         footerFirstLine = "<!-- #site-content -->"
-        footerLastLine = "<!-- #site-footer -->"
-        footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0] + footerLastLine
+        footerLastLine = """<script type="speculationrules">"""
+        footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0]
 
         htmlContent = htmlContent.replace(footer, newFooter)
 
