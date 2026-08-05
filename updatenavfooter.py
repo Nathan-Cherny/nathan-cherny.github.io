@@ -1033,29 +1033,29 @@ for fileName in file_paths:
         htmlContent = file.read()
 
         # -- CURRENT-MENU-ITEM --
-        # contentSplit = htmlContent.split("\n")
-        # l = [
-        #     contentSplit.index(i) - 2
-        #     for i in contentSplit
-        #     if f'<a href="/{path}/"' in i
-        # ]
-        # a = [i for i in l if "menu-item" in contentSplit[i]]
-        # if len(a) == 0:
-        #     continue
-        # contentSplit[a[0]] = contentSplit[a[0]].replace(
-        #     'class="', 'class="current-menu-item '
-        # )
-
-        # htmlContent = "\n".join(contentSplit)
-
-        # -- HEADER --
-        headerFirstLine = """<header id="site-header" class="header-footer-group">"""
-        header = (
-            headerFirstLine
-            + htmlContent.split("""<main id="site-content">""")[0].split(headerFirstLine)[1]
+        contentSplit = htmlContent.split("\n")
+        l = [
+            contentSplit.index(i) - 2
+            for i in contentSplit
+            if f'<a href="/{path}/"' in i
+        ]
+        a = [i for i in l if "menu-item" in contentSplit[i]]
+        if len(a) == 0:
+            continue
+        contentSplit[a[0]] = contentSplit[a[0]].replace(
+            'class="', 'class="current-menu-item '
         )
 
-        htmlContent = htmlContent.replace(header, newHeader)
+        htmlContent = "\n".join(contentSplit)
+
+        # -- HEADER --
+        # headerFirstLine = """<header id="site-header" class="header-footer-group">"""
+        # header = (
+        #     headerFirstLine
+        #     + htmlContent.split("""<main id="site-content">""")[0].split(headerFirstLine)[1]
+        # )
+
+        # htmlContent = htmlContent.replace(header, newHeader)
 
         # -- HEAD --
         # headFirstLine = """<head>"""
@@ -1064,11 +1064,11 @@ for fileName in file_paths:
         # htmlContent = htmlContent.replace(head, newHead)
 
         # -- FOOTER --
-        footerFirstLine = "<!-- #site-content -->"
-        footerLastLine = """<script type="speculationrules">"""
-        footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0]
+        # footerFirstLine = "<!-- #site-content -->"
+        # footerLastLine = """<script type="speculationrules">"""
+        # footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0]
 
-        htmlContent = htmlContent.replace(footer, newFooter)
+        # htmlContent = htmlContent.replace(footer, newFooter)
 
     with open(fileName, "w", encoding="utf-8") as file:
         file.write(htmlContent)
