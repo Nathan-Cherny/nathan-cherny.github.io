@@ -1045,3 +1045,107 @@ body .wp-site-blocks select {
         ) border-box;
 
 }
+
+.hww-step{
+  padding: 15px 0px;
+  display: flex;
+  justify-content: center;
+  margin: 0 !important;
+}
+
+/* HOW WE WORK ARROWS IDEA */
+
+.process-section {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      padding: 40px 20px;
+      margin: 0 auto;
+    }
+
+    .process-header {
+      text-align: center;
+      margin-bottom: 50px;
+      color: #333;
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    .process-container {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 15px;
+      position: relative;
+      /* Allows horizontal scrolling on smaller screens */
+      overflow-x: auto;
+      padding: 20px 0;
+    }
+
+    .process-step {
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      /* Overlap the arrow slightly under the next card */
+      margin-right: -10px;
+    }
+
+    /* Target the last step to remove the trailing margin */
+    .process-step:last-child {
+      margin-right: 0;
+    }
+
+    .process-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      padding: 20px;
+      max-width: 250px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .process-card h5 {
+      margin: 0 0 15px 0;
+      font-size: 1.5rem !important;
+      color: #1a1a1a;
+      font-weight: bold;
+    }
+
+    .process-card p {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .process-card a {
+      color: #32b3e4;
+      text-decoration: none;
+    }
+
+    .process-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Creating the arrow using CSS borders */
+    .process-arrow {
+      width: 0;
+      height: 0;
+      border-top: 60px solid transparent;
+      border-bottom: 60px solid transparent;
+      border-left: 40px solid;
+      position: relative;
+      z-index: 1;
+      margin-left: -5px; /* Tuck the base of the arrow under the card */
+    }
+
+    /* Arrow Colors to match the template */
+    .step-1 .process-arrow { border-left-color: #2b4b7c; } /* Dark Blue */
+    .step-2 .process-arrow { border-left-color: #32b3e4; } /* Light Blue */
+    .step-3 .process-arrow { border-left-color: #ef5350; } /* Red/Orange */
+    .step-4 .process-arrow { border-left-color: #66bb6a; } /* Green */
+    .step-5 .process-arrow { border-left-color: #ffa726; } /* Yellow/Orange */
+    .step-6 .process-arrow { border-left-color: #ab47bc; } /* Purple */

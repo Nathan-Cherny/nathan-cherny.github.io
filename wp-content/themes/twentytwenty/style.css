@@ -3942,11 +3942,6 @@ figure.wp-block-table.is-style-stripes {
   box-shadow: none;
 }
 
-
-.hero-buttons .wp-block-button:last-child .wp-block-button__link:hover {
-  background: var(--brand-tint) !important;
-}
-
 .eyebrow {
   display: inline-block;
   background: var(--brand-tint);
@@ -4964,9 +4959,11 @@ a.to-the-top > * {
 @media (max-width: 1500px) {
   /* Text */
 
+  em, cite, small{
+    font-size: 1.4rem !important
+  }
+
   p,
-  cite,
-  small,
   blockquote,
   button,
   div,
