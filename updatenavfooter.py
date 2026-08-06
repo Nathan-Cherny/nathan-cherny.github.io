@@ -105,13 +105,13 @@ newHeader = """
                     id=""
                     class="menu-item menu-item-type-post_type menu-item-object-page"
                   >
-                    <a href="/our-tools/">Use Our Tools</a>
+                    <a href="/prototype-functional-models/">Prototype Functional Models</a>
                   </li>
                   <li
                     id=""
                     class="menu-item menu-item-type-post_type menu-item-object-page"
                   >
-                    <a href="/prototype-functional-models/">Prototype Functional Models</a>
+                    <a href="/our-tools/">Use Our Tools</a>
                   </li>
                   <!-- <li
                     id="menu-item-1596"
@@ -281,16 +281,6 @@ newHeader = """
                       class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
                     >
                       <div class="ancestor-wrapper">
-                        <a href="/our-tools/"
-                          >Use Our Tools</a
-                        >
-                      </div>
-                      <!-- .ancestor-wrapper -->
-                    </li>
-                    <li
-                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
-                    >
-                      <div class="ancestor-wrapper">
                         <a href="/prototype-functional-models/"
                           >Prototype Functional Models</a
                         >
@@ -298,6 +288,16 @@ newHeader = """
                       <!-- .ancestor-wrapper -->
                     </li>
                   </ul>
+                </li>
+                <li
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
+                >
+                  <div class="ancestor-wrapper">
+                    <a href="/our-tools/"
+                      >Use Our Tools</a
+                    >
+                  </div>
+                  <!-- .ancestor-wrapper -->
                 </li>
                 <li
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
@@ -1049,29 +1049,29 @@ for fileName in file_paths:
         htmlContent = file.read()
 
         # -- HEADER --
-        # headerFirstLine = """<header id="site-header" class="header-footer-group">"""
-        # header = (
-        #     headerFirstLine
-        #     + htmlContent.split("""<main id="site-content">""")[0].split(headerFirstLine)[1]
-        # )
-
-        # htmlContent = htmlContent.replace(header, newHeader)
-
-        # -- CURRENT-MENU-ITEM --
-        contentSplit = htmlContent.split("\n")
-        l = [
-            contentSplit.index(i) - 2
-            for i in contentSplit
-            if f'<a href="/{path}/"' in i
-        ]
-        a = [i for i in l if "menu-item" in contentSplit[i]]
-        if len(a) == 0:
-            continue
-        contentSplit[a[0]] = contentSplit[a[0]].replace(
-            'class="', 'class="current-menu-item '
+        headerFirstLine = """<header id="site-header" class="header-footer-group">"""
+        header = (
+            headerFirstLine
+            + htmlContent.split("""<main id="site-content">""")[0].split(headerFirstLine)[1]
         )
 
-        htmlContent = "\n".join(contentSplit)
+        htmlContent = htmlContent.replace(header, newHeader)
+
+        # -- CURRENT-MENU-ITEM --
+        # contentSplit = htmlContent.split("\n")
+        # l = [
+        #     contentSplit.index(i) - 2
+        #     for i in contentSplit
+        #     if f'<a href="/{path}/"' in i
+        # ]
+        # a = [i for i in l if "menu-item" in contentSplit[i]]
+        # if len(a) == 0:
+        #     continue
+        # contentSplit[a[0]] = contentSplit[a[0]].replace(
+        #     'class="', 'class="current-menu-item '
+        # )
+
+        # htmlContent = "\n".join(contentSplit)
 
         # -- HEAD --
         # headFirstLine = """<head>"""
