@@ -4970,9 +4970,7 @@ a.to-the-top > * {
   blockquote,
   button,
   div,
-  a,
-  h2,
-  h3{
+  a{
     font-size: 1.8rem !important;
   }
 
@@ -4980,8 +4978,12 @@ a.to-the-top > * {
     font-size: 2rem !important;
   }
 
-  h1, h2, h3, h4 {
-    font-size: 2.2rem !important;
+  h4, h3{
+    font-size: 2.8rem !important;
+  }
+
+  h1, h2 {
+    font-size: 3.2rem !important;
   }
 
   img{
