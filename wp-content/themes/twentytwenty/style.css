@@ -127,7 +127,7 @@ body {
   box-sizing: border-box;
   color: #000;
   font-family:
-    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.8rem;
   letter-spacing: -0.015em;
   text-align: left;
@@ -135,13 +135,7 @@ body {
 
 @supports (font-variation-settings: normal) {
   body {
-    font-family:
-      "Inter var",
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      Helvetica,
-      sans-serif;
+    font-family: "Inter var", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }
 
@@ -742,7 +736,7 @@ button,
 .wp-block-button__link,
 .wp-block-file__button {
   font-family:
-    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1;
 }
 
@@ -755,13 +749,7 @@ button,
   .faux-button.more-link,
   .wp-block-button__link,
   .wp-block-file__button {
-    font-family:
-      "Inter var",
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      Helvetica,
-      sans-serif;
+    font-family: "Inter var", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }
 
@@ -2867,7 +2855,7 @@ h2.entry-title {
 .has-drop-cap:not(:focus)::first-letter {
   color: #cd2653;
   font-family:
-    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 5.1em;
   font-weight: 800;
   margin: 0.05em 0.1em 0 0;
@@ -2895,7 +2883,7 @@ h2.entry-title {
 .entry-content .wp-block-quote.is-large,
 .entry-content .wp-block-quote.is-style-large {
   font-family:
-    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
@@ -2906,13 +2894,7 @@ h2.entry-title {
   .entry-content .wp-block-latest-comments,
   .entry-content .wp-block-cover-image p,
   .entry-content .wp-block-pullquote {
-    font-family:
-      "Inter var",
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      Helvetica,
-      sans-serif;
+    font-family: "Inter var", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }
 
@@ -3753,7 +3735,7 @@ figure.wp-block-table.is-style-stripes {
 .entry-content .wp-caption-text,
 .entry-content .wp-block-file {
   font-family:
-    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
@@ -3769,13 +3751,7 @@ figure.wp-block-table.is-style-stripes {
   .entry-content address,
   .entry-content .wp-caption-text,
   .entry-content .wp-block-file {
-    font-family:
-      "Inter var",
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      Helvetica,
-      sans-serif;
+    font-family: "Inter var", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }
 
@@ -4473,20 +4449,14 @@ div.comment:first-of-type {
 .widget-content figcaption,
 .widget-content .wp-caption-text {
   font-family:
-    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
   .widget-content cite,
   .widget-content figcaption,
   .widget-content .wp-caption-text {
-    font-family:
-      "Inter var",
-      -apple-system,
-      BlinkMacSystemFont,
-      "Helvetica Neue",
-      Helvetica,
-      sans-serif;
+    font-family: "Inter var", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }
 
