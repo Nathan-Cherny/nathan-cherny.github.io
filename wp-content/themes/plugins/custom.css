@@ -903,6 +903,8 @@ body .wp-site-blocks select {
   }
 }
 
+/* linked in embed */
+
 /* ---- Card ---- */
 .card {
   display: flex;
@@ -1144,3 +1146,49 @@ body .wp-site-blocks select {
 .step-6 .process-arrow {
   border-bottom-color: #ab47bc;
 } /* Purple */
+
+/* linkedin */
+
+.linkedin-video-wrapper {
+  max-width: 500px !important; /* match your video size */
+}
+
+.linkedin-video-wrapper video {
+  width: 100%;
+}
+
+.clickable-linkedin {
+  cursor: pointer;
+  width: 100%;
+  background: rgba(80, 100, 200, 0.75);
+  text-align: center;
+  border-radius: 0 !important;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 12px;
+  font-family: sans-serif;
+  white-space: nowrap;
+}
+
+/* ex
+<div class="linkedin-video-wrapper">
+  <video
+    src="/media/client-interviews/Schools & Data： Mark sits down with xSoTec [schools-data-marksitsdownwithxs7204907992037683201].mp4"
+    frameborder="0"
+    allow="
+            accelerometer;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+            web-share;
+          "
+    controls=""
+    data-origwidth="0"
+    data-origheight="0"
+  ></video>
+  <a href="https://www.linkedin.com/events/7204907992037683201/" target="_blank" class="clickable-linkedin wp-block-button__link wp-element-button">
+    Click here for LinkedIn post
+  </a>
+</div>
+*/

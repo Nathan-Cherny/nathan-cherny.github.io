@@ -126,8 +126,7 @@ body {
   background: #f5efe0;
   box-sizing: border-box;
   color: #000;
-  font-family:
-    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.8rem;
   letter-spacing: -0.015em;
   text-align: left;
@@ -735,8 +734,7 @@ button,
 .faux-button,
 .wp-block-button__link,
 .wp-block-file__button {
-  font-family:
-    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1;
 }
 
@@ -2854,8 +2852,7 @@ h2.entry-title {
 
 .has-drop-cap:not(:focus)::first-letter {
   color: #cd2653;
-  font-family:
-    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 5.1em;
   font-weight: 800;
   margin: 0.05em 0.1em 0 0;
@@ -2882,8 +2879,7 @@ h2.entry-title {
 .entry-content .wp-block-pullquote,
 .entry-content .wp-block-quote.is-large,
 .entry-content .wp-block-quote.is-style-large {
-  font-family:
-    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
@@ -3132,12 +3128,12 @@ ol.wp-block-latest-comments {
 
 .wp-block-column {
   margin-bottom: 3.2rem;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
-.wp-block-columns{
+.wp-block-columns {
   display: flex;
   justify-content: space-between;
 }
@@ -3360,7 +3356,7 @@ figure.wp-block-gallery.alignfull {
   margin-bottom: 20px;
   padding: 15px;
   border: 1px solid black;
-  
+
   /* Flexible sizing mimicking wp-block-image */
   width: 200px;
   height: 100px;
@@ -3719,7 +3715,7 @@ figure.wp-block-table.is-style-stripes {
 
 .entry-content {
   letter-spacing: normal;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .entry-content h1,
@@ -3734,8 +3730,7 @@ figure.wp-block-table.is-style-stripes {
 .entry-content address,
 .entry-content .wp-caption-text,
 .entry-content .wp-block-file {
-  font-family:
-    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
@@ -4443,8 +4438,7 @@ div.comment:first-of-type {
 .widget-content cite,
 .widget-content figcaption,
 .widget-content .wp-caption-text {
-  font-family:
-    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
@@ -4951,7 +4945,7 @@ a.to-the-top > * {
     display: none !important;
   }
 
-  img{
+  img {
     max-width: 200px !important;
   }
 }
@@ -4959,31 +4953,35 @@ a.to-the-top > * {
 @media (max-width: 1500px) {
   /* Text */
 
-  em, cite, small{
-    font-size: 1.4rem !important
+  em,
+  cite,
+  small {
+    font-size: 1.4rem !important;
   }
 
   p,
   blockquote,
   button,
   div,
-  a{
+  a {
     font-size: 1.8rem !important;
   }
 
-  h5{
+  h5 {
     font-size: 2rem !important;
   }
 
-  h4, h3{
+  h4,
+  h3 {
     font-size: 2.8rem !important;
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 3.2rem !important;
   }
 
-  img{
+  img {
     max-width: 350px !important;
   }
 }
@@ -6060,8 +6058,16 @@ a.to-the-top > * {
 
   .footer-credits {
     display: flex;
+    gap: 5px;
     flex-wrap: wrap;
   }
+
+  .footer-credits {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
 
   .footer-copyright {
     font-weight: 700;
@@ -7013,7 +7019,7 @@ a.to-the-top > * {
     width: calc(100% - 8rem);
   }
 
-  img{
+  img {
     max-width: 300px !important;
   }
 }
