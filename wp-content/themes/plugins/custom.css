@@ -882,9 +882,7 @@ body .wp-site-blocks select {
   font-style: normal;
 }
 
-
 /* case studies main page */
-
 
 /* ---- Grid ---- */
 .card-grid {
@@ -892,19 +890,19 @@ body .wp-site-blocks select {
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
- 
+
 @media (max-width: 900px) {
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
- 
+
 @media (max-width: 600px) {
   .card-grid {
     grid-template-columns: 1fr;
   }
 }
- 
+
 /* ---- Card ---- */
 .card {
   display: flex;
@@ -914,42 +912,42 @@ body .wp-site-blocks select {
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  border: .25px solid black;
+  border: 0.25px solid black;
   box-shadow: 2px 2px 5px;
-  transition-duration: 0.15s !important
+  transition-duration: 0.15s !important;
 }
- 
+
 .card:hover {
   transform: translateY(-4px);
 }
- 
+
 .card-image {
   width: 100%;
   aspect-ratio: 3 / 2;
   overflow: hidden;
   background: #e6e8ec;
 }
- 
+
 .card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
- 
+
 .card-body {
   padding: 16px 18px 20px;
 }
- 
+
 .card-tag {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   display: inline-block;
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: #0374b5;
 }
- 
+
 .card-title {
   font-size: 2.5rem !important;
   line-height: 1.4;
@@ -959,193 +957,190 @@ body .wp-site-blocks select {
 
 /* case studies */
 
-.case-study{
+.case-study {
   display: flex;
   flex-direction: column;
   margin: 5px auto;
   max-width: 90% !important;
 }
 
-.cs-go-back{
+.cs-go-back {
   font-weight: 200;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   cursor: pointer;
   text-decoration: none;
   margin-bottom: 15px;
 }
 
-.case-study .cs-general{
+.case-study .cs-general {
   text-align: left;
 }
 
-.case-study .cs-general-meta{
-  background-color: rgba(0, 0, 0, .15);
+.case-study .cs-general-meta {
+  background-color: rgba(0, 0, 0, 0.15);
   border-radius: 20px;
 }
 
-.case-study .cs-general-meta *{
+.case-study .cs-general-meta * {
   display: inline;
   padding: 10px;
   font-size: 1.5rem !important;
 }
 
-.case-study .cs-client-type{
+.case-study .cs-client-type {
   text-align: left;
   margin: inherit;
-  color: teal
+  color: teal;
 }
 
-.case-study .cs-client-name{
+.case-study .cs-client-name {
   margin: inherit;
   text-align: left;
   margin-top: 5px !important;
   font-size: 5rem !important;
 }
 
-.case-study .cs-section-main{
+.case-study .cs-section-main {
   font-size: 3rem !important;
   text-align: center;
 }
 
-.case-study .cs-section-desc{
-  padding: 15px
+.case-study .cs-section-desc {
+  padding: 15px;
 }
 
-.case-study .cs-interest{
+.case-study .cs-interest {
   margin-top: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.case-study .wp-block-columns:nth-child(even){background-color: rgb(245, 245, 255) !important}
-.case-study .wp-block-columns:nth-child(odd){background-color: rgb(250, 250, 255) !important}
+.case-study .wp-block-columns:nth-child(even) {
+  background-color: rgb(245, 245, 255) !important;
+}
+.case-study .wp-block-columns:nth-child(odd) {
+  background-color: rgb(250, 250, 255) !important;
+}
 
-.case-study .wp-block-columns{
+.case-study .wp-block-columns {
   margin-top: 0px !important;
   margin-bottom: 0px !important;
-  padding: 25px
+  padding: 25px;
 }
 
 .rainbow-border {
-    border: 4px solid transparent;
-    border-radius: 16px;
-    padding: 20px;
+  border: 4px solid transparent;
+  border-radius: 16px;
+  padding: 20px;
 
-    background:
-        linear-gradient(rgb(230, 230, 240), rgb(230, 230, 250)) padding-box,
-        conic-gradient(
-            orange,
-            yellow,
-            cyan,
-            teal,
-            blue,
-            magenta,
-            orange
-        ) border-box;
-
-}
-
-.hww-step{
-  padding: 15px 0px;
-  display: flex;
-  justify-content: center;
-  margin: 0 !important;
+  background:
+    linear-gradient(rgb(230, 230, 240), rgb(230, 230, 250)) padding-box,
+    conic-gradient(orange, yellow, cyan, teal, blue, magenta, orange) border-box;
 }
 
 /* HOW WE WORK ARROWS IDEA */
 
 .process-section {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffffff;
-      padding: 40px 20px;
-      margin: 0 auto;
-    }
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  padding: 20px 0px;
+  margin: 0 auto;
+}
 
-    .process-header {
-      text-align: center;
-      margin-bottom: 50px;
-      color: #333;
-      font-size: 2rem;
-      font-weight: 500;
-    }
+.process-header {
+  text-align: center;
+  margin: 15px;
+}
 
-    .process-container {
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-      gap: 15px;
-      position: relative;
-      /* Allows horizontal scrolling on smaller screens */
-      overflow-x: auto;
-      padding: 20px 0;
-    }
+.process-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 15px;
+  position: relative;
+  /* Allows horizontal scrolling on smaller screens */
+  overflow-x: auto;
+  padding: 20px 0;
+}
 
-    .process-step {
-      display: flex;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-      /* Overlap the arrow slightly under the next card */
-      margin-right: -10px;
-    }
+.process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
 
-    /* Target the last step to remove the trailing margin */
-    .process-step:last-child {
-      margin-right: 0;
-    }
+/* Target the last step to remove the trailing margin */
+.process-step:last-child {
+  margin-right: 0;
+}
 
-    .process-card {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      padding: 20px;
-      max-width: 250px;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
+.process-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  padding: 20px;
+  max-width: 75%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
 
-    .process-card h5 {
-      margin: 0 0 15px 0;
-      font-size: 1.5rem !important;
-      color: #1a1a1a;
-      font-weight: bold;
-    }
+.process-card h5 {
+  margin: 0 0 15px 0;
+  text-align: center;
+  font-weight: bold;
+}
 
-    .process-card p {
-      margin: 0;
-      font-size: 1.5rem;
-      color: #555;
-      line-height: 1.5;
-    }
+.process-card p {
+  margin: 0;
+  line-height: 1.5;
+}
 
-    .process-card a {
-      color: #32b3e4;
-      text-decoration: none;
-    }
+.process-card a {
+  color: #32b3e4;
+  text-decoration: none;
+}
 
-    .process-card a:hover {
-      text-decoration: underline;
-    }
+.process-card a:hover {
+  text-decoration: underline;
+}
 
-    /* Creating the arrow using CSS borders */
-    .process-arrow {
-      width: 0;
-      height: 0;
-      border-top: 60px solid transparent;
-      border-bottom: 60px solid transparent;
-      border-left: 40px solid;
-      position: relative;
-      z-index: 1;
-      margin-left: -5px; /* Tuck the base of the arrow under the card */
-    }
+/* Creating the arrow using CSS borders */
+.process-arrow {
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 40px solid;
+  position: relative;
+  transform: rotate(180deg);
+  z-index: 1;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
 
-    /* Arrow Colors to match the template */
-    .step-1 .process-arrow { border-left-color: #2b4b7c; } /* Dark Blue */
-    .step-2 .process-arrow { border-left-color: #32b3e4; } /* Light Blue */
-    .step-3 .process-arrow { border-left-color: #ef5350; } /* Red/Orange */
-    .step-4 .process-arrow { border-left-color: #66bb6a; } /* Green */
-    .step-5 .process-arrow { border-left-color: #ffa726; } /* Yellow/Orange */
-    .step-6 .process-arrow { border-left-color: #ab47bc; } /* Purple */
+/* Arrow Colors to match the template */
+.step-1 .process-arrow {
+  border-bottom-color: #2b4b7c;
+} /* Dark Blue */
+.step-2 .process-arrow {
+  border-bottom-color: #32b3e4;
+} /* Light Blue */
+.step-3 .process-arrow {
+  border-bottom-color: #ef5350;
+} /* Red/Orange */
+.step-4 .process-arrow {
+  border-bottom-color: #66bb6a;
+} /* Green */
+.step-5 .process-arrow {
+  border-bottom-color: #ffa726;
+} /* Yellow/Orange */
+.step-6 .process-arrow {
+  border-bottom-color: #ab47bc;
+} /* Purple */
