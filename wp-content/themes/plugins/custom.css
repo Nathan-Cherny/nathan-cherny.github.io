@@ -1026,7 +1026,7 @@ body .wp-site-blocks select {
   text-align: center;
 }
 
-.case-study .cs-section-main cite {
+.case-study cite {
   text-align: right !important;
 }
 
@@ -1074,6 +1074,7 @@ body .wp-site-blocks select {
 }
 
 .process-header {
+  font-size: 2.75rem;
   text-align: center;
   margin: 15px;
 }
@@ -1119,7 +1120,7 @@ body .wp-site-blocks select {
   margin: 0 0 15px 0;
   text-align: center;
   font-size: 2.5rem;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   font-weight: bold;
 }
 
@@ -1153,25 +1154,23 @@ body .wp-site-blocks select {
   margin-bottom: 5px;
 }
 
-/* Arrow Colors to match the template */
+/* hey, it's the logo! like the colors of the logo! woah! wow, i'm so creative and cool */
+/* okay but i actually think this is pretty neat */
 .step-1 .process-arrow {
-  border-bottom-color: #2b4b7c;
-} /* Dark Blue */
+  border-bottom-color: #f9c40e;
+} 
 .step-2 .process-arrow {
-  border-bottom-color: #32b3e4;
-} /* Light Blue */
+  border-bottom-color: #a7f90e;
+}
 .step-3 .process-arrow {
-  border-bottom-color: #ef5350;
-} /* Red/Orange */
+  border-bottom-color: #21ad4a;
+}
 .step-4 .process-arrow {
-  border-bottom-color: #66bb6a;
-} /* Green */
+  border-bottom-color: #00e2bc;
+} 
 .step-5 .process-arrow {
-  border-bottom-color: #ffa726;
-} /* Yellow/Orange */
-.step-6 .process-arrow {
-  border-bottom-color: #ab47bc;
-} /* Purple */
+  border-bottom-color: #009ee2;
+} 
 
 /* linkedin */
 
