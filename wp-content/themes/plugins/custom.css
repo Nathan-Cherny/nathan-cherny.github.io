@@ -989,6 +989,11 @@ body .wp-site-blocks select {
   cursor: pointer;
   text-decoration: none;
   margin-bottom: 15px;
+  transition: 0.15s all;
+}
+
+.cs-go-back:hover {
+  transform: translateX(-10px);
 }
 
 .case-study .cs-general {
