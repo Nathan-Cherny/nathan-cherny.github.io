@@ -405,9 +405,7 @@ newHeader = """
       
 """
 
-newFooter = """<!-- #site-content -->
-
-    <div
+newFooter = """<div
       class="footer-nav-widgets-wrapper header-footer-group"
       style="background-color: var(--brand-ink)"
     >
@@ -415,28 +413,54 @@ newFooter = """<!-- #site-content -->
         <div class="footer-top has-footer-menu">
           <nav aria-label="Footer" class="footer-menu-wrapper">
             <ul class="footer-menu reset-list-style">
-              <li id="menu-item-1012" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-977 current_page_item menu-item-1012">
+              <li
+                id="menu-item-1012"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-977 current_page_item menu-item-1012"
+              >
                 <a href="/">Home</a>
               </li>
-              <li id="menu-item-999" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-999">
+              <li
+                id="menu-item-999"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-999"
+              >
                 <a href="/custom-development/">Custom Development</a>
               </li>
-              <li id="menu-item-975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975">
-                <a href="/transform-your-sheets/">Organize & Automate Your Sheets</a>
+              <li
+                id="menu-item-975"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975"
+              >
+                <a href="/transform-your-sheets/"
+                  >Organize & Automate Your Sheets</a
+                >
               </li>
-              <li id="menu-item-975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975">
+              <li
+                id="menu-item-975"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975"
+              >
                 <a href="/how-we-work/">How We Work</a>
               </li>
-              <li id="menu-item-975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975">
+              <li
+                id="menu-item-975"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975"
+              >
                 <a href="/about/">Our Story</a>
               </li>
-              <li id="menu-item-828" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-828">
+              <li
+                id="menu-item-828"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-828"
+              >
                 <a href="/request-a-demo/">Interest Form</a>
               </li>
-              <li id="menu-item-1067" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1067">
+              <li
+                id="menu-item-1067"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1067"
+              >
                 <a href="/privacy-policy/">Privacy Policy</a>
               </li>
-              <li id="menu-item-1542" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1542">
+              <li
+                id="menu-item-1542"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1542"
+              >
                 <a href="/terms-conditions/">Terms &amp; Conditions</a>
               </li>
             </ul>
@@ -451,23 +475,29 @@ newFooter = """<!-- #site-content -->
         <div class="section-inner">
           <div class="footer-credits">
             <p class="footer-copyright">© 2026 <a href="/">xSoTec</a></p>
+            <div class="footer-links">
+              <a href="https://www.linkedin.com/company/xsotec" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="https://twitter.com/officialxsotec" target="_blank"><i class="fa-brands fa-square-twitter"></i></a>
+              <a href="https://www.facebook.com/xsotec/" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+            </div>
             <!-- .footer-copyright -->
           </div>
           <!-- .footer-credits -->
 
           <a class="to-the-top" href="#site-header">
             <span class="to-the-top-long">
-              To the top <span class="arrow" aria-hidden="true">↑</span> </span><!-- .to-the-top-long -->
+              To the top <span class="arrow" aria-hidden="true">↑</span> </span
+            ><!-- .to-the-top-long -->
             <span class="to-the-top-short">
-              Up <span class="arrow" aria-hidden="true">↑</span> </span><!-- .to-the-top-short --> 
-          </a><!-- .to-the-top -->
+              Up <span class="arrow" aria-hidden="true">↑</span> </span
+            ><!-- .to-the-top-short --> </a
+          ><!-- .to-the-top -->
         </div>
         <!-- .section-inner -->
       </footer>
       <!-- #site-footer -->
-      </div>
-      <!-- .footer-nav-widgets-wrapper -->
-"""
+    </div>
+    <!-- .footer-nav-widgets-wrapper -->"""
 
 newHead = """
 <head>
@@ -1064,20 +1094,20 @@ for fileName in file_paths:
         # htmlContent = htmlContent.replace(header, newHeader)
 
         # -- CURRENT-MENU-ITEM --
-        contentSplit = htmlContent.split("\n")
-        l = [
-            contentSplit.index(i) - 2
-            for i in contentSplit
-            if f'<a href="/{path}/"' in i
-        ]
-        a = [i for i in l if "menu-item" in contentSplit[i]]
-        if len(a) == 0:
-            continue
-        contentSplit[a[0]] = contentSplit[a[0]].replace(
-            'class="', 'class="current-menu-item '
-        )
+        # contentSplit = htmlContent.split("\n")
+        # l = [
+        #     contentSplit.index(i) - 2
+        #     for i in contentSplit
+        #     if f'<a href="/{path}/"' in i
+        # ]
+        # a = [i for i in l if "menu-item" in contentSplit[i]]
+        # if len(a) == 0:
+        #     continue
+        # contentSplit[a[0]] = contentSplit[a[0]].replace(
+        #     'class="', 'class="current-menu-item '
+        # )
 
-        htmlContent = "\n".join(contentSplit)
+        # htmlContent = "\n".join(contentSplit)
 
         # -- HEAD --
         # headFirstLine = """<head>"""
@@ -1086,11 +1116,11 @@ for fileName in file_paths:
         # htmlContent = htmlContent.replace(head, newHead)
 
         # -- FOOTER --
-        # footerFirstLine = "<!-- #site-content -->"
-        # footerLastLine = """<script type="speculationrules">"""
-        # footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0]
+        footerFirstLine = "<!-- #site-content -->"
+        footerLastLine = """<script type="speculationrules">"""
+        footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0]
 
-        # htmlContent = htmlContent.replace(footer, newFooter)
+        htmlContent = htmlContent.replace(footer, newFooter)
 
     with open(fileName, "w", encoding="utf-8") as file:
         file.write(htmlContent)

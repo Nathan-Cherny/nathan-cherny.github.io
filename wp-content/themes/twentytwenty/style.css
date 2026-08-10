@@ -6016,19 +6016,12 @@ a.to-the-top > * {
     font-size: 1.8rem;
     padding: 4.3rem 0;
   }
-
+  
   .footer-credits {
     display: flex;
-    gap: 5px;
+    gap: 15px;
     flex-wrap: wrap;
   }
-
-  .footer-credits {
-    display: flex;
-    gap: 5px;
-    flex-wrap: wrap;
-  }
-
 
   .footer-copyright {
     font-weight: 700;

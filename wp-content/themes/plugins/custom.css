@@ -905,6 +905,21 @@ body .wp-site-blocks select {
   }
 }
 
+.footer-links{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer-links i{
+  cursor: pointer;
+  transition: .15s all;
+}
+
+.footer-links i:hover{
+  scale: calc(1.05)
+}
+
 /* linked in embed */
 
 /* ---- Card ---- */
