@@ -887,8 +887,10 @@ body .wp-site-blocks select {
 /* ---- Grid ---- */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 24px;
+  justify-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 900px) {
@@ -908,6 +910,7 @@ body .wp-site-blocks select {
 /* ---- Card ---- */
 .card {
   display: flex;
+  max-width: 300px;
   flex-direction: column;
   background: #ffffff;
   border-radius: 12px;
@@ -944,16 +947,29 @@ body .wp-site-blocks select {
 .card-tag {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: #0374b5;
+  padding: 5px;
+}
+
+.cs-client-type-list{
+  display: flex;
+  flex-direction: row;
+  gap: calc(20px);
+}
+
+.card-tag, .cs-client-type{
+  width: fit-content;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 80, 0.1);
+  color: teal;
 }
 
 .card-title {
   font-size: 2.5rem !important;
   line-height: 1.4;
-  margin: 0 !important;
+  margin: 15px 0 0 0!important;
   font-weight: 600;
 }
 
@@ -981,6 +997,8 @@ body .wp-site-blocks select {
 .case-study .cs-general-meta {
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 20px;
+  width: fit-content;
+  height: fit-content;
 }
 
 .case-study .cs-general-meta * {
@@ -992,7 +1010,7 @@ body .wp-site-blocks select {
 .case-study .cs-client-type {
   text-align: left;
   margin: inherit;
-  color: teal;
+  padding: 10px;
 }
 
 .case-study .cs-client-name {
@@ -1168,6 +1186,19 @@ body .wp-site-blocks select {
   padding: 6px 12px;
   font-family: sans-serif;
   white-space: nowrap;
+}
+
+.case-studies-linker {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  margin: 0px auto;
+  max-width: 90% !important;
+  padding: 20px 10px;
+}
+
+.case-studies-linker h4, p{
+  text-align: center;
+  margin-top: 5px;
 }
 
 /* ex
