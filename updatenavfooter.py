@@ -131,6 +131,12 @@ newHeader = """
                 id="menu-item-999"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
               >
+                <a href="/case-studies/">Success Stories</a>
+              </li>
+              <li
+                id="menu-item-999"
+                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
+              >
                 <a href="/how-we-work/">How We Work</a>
               </li>
               <!-- <li
@@ -287,17 +293,17 @@ newHeader = """
                       </div>
                       <!-- .ancestor-wrapper -->
                     </li>
-                  </ul>
-                </li>
-                <li
-                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
-                >
-                  <div class="ancestor-wrapper">
-                    <a href="/our-tools/"
-                      >Use Our Tools</a
+                    <li
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
                     >
-                  </div>
-                  <!-- .ancestor-wrapper -->
+                      <div class="ancestor-wrapper">
+                        <a href="/our-tools/"
+                          >Use Our Tools</a
+                        >
+                      </div>
+                      <!-- .ancestor-wrapper -->
+                    </li>
+                  </ul>
                 </li>
                 <li
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
@@ -308,6 +314,12 @@ newHeader = """
                   <!-- .ancestor-wrapper -->
                 </li>
                 <li
+                  id="menu-item-999"
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
+                >
+                  <a href="/case-studies/">Success Stories</a>
+                </li>
+                <li
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
                 >
                   <div class="ancestor-wrapper">
@@ -315,13 +327,7 @@ newHeader = """
                   </div>
                   <!-- .ancestor-wrapper -->
                 </li>
-                <!--<li
-                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164"
-                >
-                  <div class="ancestor-wrapper">
-                    <a href="/case-studies/">Case Studies</a>
-                  </div>
-                </li>-->
+
                 <li
                   class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-788"
                 >
@@ -1058,20 +1064,20 @@ for fileName in file_paths:
         # htmlContent = htmlContent.replace(header, newHeader)
 
         # -- CURRENT-MENU-ITEM --
-        # contentSplit = htmlContent.split("\n")
-        # l = [
-        #     contentSplit.index(i) - 2
-        #     for i in contentSplit
-        #     if f'<a href="/{path}/"' in i
-        # ]
-        # a = [i for i in l if "menu-item" in contentSplit[i]]
-        # if len(a) == 0:
-        #     continue
-        # contentSplit[a[0]] = contentSplit[a[0]].replace(
-        #     'class="', 'class="current-menu-item '
-        # )
+        contentSplit = htmlContent.split("\n")
+        l = [
+            contentSplit.index(i) - 2
+            for i in contentSplit
+            if f'<a href="/{path}/"' in i
+        ]
+        a = [i for i in l if "menu-item" in contentSplit[i]]
+        if len(a) == 0:
+            continue
+        contentSplit[a[0]] = contentSplit[a[0]].replace(
+            'class="', 'class="current-menu-item '
+        )
 
-        # htmlContent = "\n".join(contentSplit)
+        htmlContent = "\n".join(contentSplit)
 
         # -- HEAD --
         # headFirstLine = """<head>"""
