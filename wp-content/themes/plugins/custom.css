@@ -1204,7 +1204,8 @@ body .wp-site-blocks select {
   padding: 20px 10px;
 }
 
-.case-studies-linker h4, p{
+.case-studies-linker h4,
+.case-studies-linker p {
   text-align: center;
   margin-top: 5px;
 }

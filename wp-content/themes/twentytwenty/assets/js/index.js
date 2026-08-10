@@ -332,7 +332,7 @@ twentytwenty.intrinsicRatioVideos = {
 
   makeFit: function () {
     document
-      .querySelectorAll("iframe, object, video")
+      .querySelectorAll("object, video")
       .forEach(function (video) {
         var ratio,
           iTargetWidth,
