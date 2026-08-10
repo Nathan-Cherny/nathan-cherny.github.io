@@ -911,6 +911,8 @@ ul {
 }
 
 .is-content-justification-center{
+  display:flex;
+  align-items: center;
   justify-content: center;
 }
 
