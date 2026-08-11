@@ -1178,11 +1178,11 @@ for fileName in file_paths:
             htmlContent = htmlContent.replace(head, custom_head)
 
         # -- FOOTER --
-        footerFirstLine = "</main>"
-        footerLastLine = """<script type="speculationrules">"""
-        if footerFirstLine in htmlContent and footerLastLine in htmlContent:
-            footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0]
-            htmlContent = htmlContent.replace(footer, newFooter)
+        # footerFirstLine = "</main>"
+        # footerLastLine = """<script type="speculationrules">"""
+        # if footerFirstLine in htmlContent and footerLastLine in htmlContent:
+        #     footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0]
+        #     htmlContent = htmlContent.replace(footer, newFooter)
 
     with open(fileName, "w", encoding="utf-8") as file:
         file.write(htmlContent)
