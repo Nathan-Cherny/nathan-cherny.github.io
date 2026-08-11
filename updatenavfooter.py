@@ -405,7 +405,10 @@ newHeader = """
       
 """
 
-newFooter = """<div
+newFooter = """
+    </main>
+    <!-- #site-header -->
+    <div
       class="footer-nav-widgets-wrapper header-footer-group"
       style="background-color: var(--brand-ink)"
     >
@@ -477,7 +480,6 @@ newFooter = """<div
             <p class="footer-copyright">© 2026 <a href="/">xSoTec</a></p>
             <div class="footer-links">
               <a href="https://www.linkedin.com/company/xsotec" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-              <a href="https://twitter.com/officialxsotec" target="_blank"><i class="fa-brands fa-square-twitter"></i></a>
               <a href="https://www.facebook.com/xsotec/" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
             </div>
             <!-- .footer-copyright -->
@@ -1116,7 +1118,7 @@ for fileName in file_paths:
         # htmlContent = htmlContent.replace(head, newHead)
 
         # -- FOOTER --
-        footerFirstLine = "<!-- #site-content -->"
+        footerFirstLine = "</main>"
         footerLastLine = """<script type="speculationrules">"""
         footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0]
 
