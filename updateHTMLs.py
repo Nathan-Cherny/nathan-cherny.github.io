@@ -1,4 +1,10 @@
 import os
+import json
+from datetime import datetime, timezone
+from bs4 import BeautifulSoup
+
+DIRECTORY = "."
+EXTENSION = ".html"
 
 newHeader = """
 <header id="site-header" class="header-footer-group">
@@ -792,8 +798,8 @@ newHead = """
 
     <link
       rel="stylesheet"
-      id="coblocks-extensions-css"
-      href="/wp-content/plugins/coblocks/dist/style-coblocks-extensions.css?ver=3.1.5"
+      id="coblocks-EXTENSIONs-css"
+      href="/wp-content/plugins/coblocks/dist/style-coblocks-EXTENSIONs.css?ver=3.1.5"
       media="all"
     />
     <link
@@ -1001,7 +1007,7 @@ newHead = """
     </script>
 
     <!-- End Google Tag Manager snippet added by Site Kit -->
-    <style id="uagb-style-conditional-extension">
+    <style id="uagb-style-conditional-EXTENSION">
       @media (min-width: 1025px) {
         body .uag-hide-desktop.uagb-google-map__wrap,
         body .uag-hide-desktop {
@@ -1070,24 +1076,21 @@ newHead = """
 
 # ACTUAL CODE
 
-
-directory = "."
-extension = ".html"
 file_paths = []
 
-# Walk through the directory tree
-for root, dirs, files in os.walk(directory):
+# Walk through the DIRECTORY tree
+for root, dirs, files in os.walk(DIRECTORY):
     for file in files:
-        if file.endswith(extension):
+        if file.endswith(EXTENSION):
             # Join root and file to get the full path
             file_paths.append(os.path.join(root, file))
 
 for fileName in file_paths:
-    # 1. Get the directory path of the current file
+    # 1. Get the DIRECTORY path of the current file
     dir_path = os.path.dirname(fileName)
     
-    # 2. Get the relative path from the base directory and normalize slashes for the web
-    rel_dir = os.path.relpath(dir_path, directory).replace("\\", "/")
+    # 2. Get the relative path from the base DIRECTORY and normalize slashes for the web
+    rel_dir = os.path.relpath(dir_path, DIRECTORY).replace("\\", "/")
     
     # 3. Determine the correct full URL path
     url_path = "/" if rel_dir == "." else f"/{rel_dir}/"
@@ -1186,3 +1189,177 @@ for fileName in file_paths:
 
     with open(fileName, "w", encoding="utf-8") as file:
         file.write(htmlContent)
+
+
+
+
+def prompt_for_field(label, current_value):
+    """Displays the current value and prompts the user for a new one.
+    Returns the new input, or the current value if the user presses ENTER."""
+    print(f"\n--- {label} ---")
+    print(f"Current: {current_value if current_value else '[EMPTY]'}")
+    user_input = input("New Value (Press ENTER to keep current): ").strip()
+    return user_input if user_input else current_value
+
+def process_html_file(filepath):
+    """Reads an HTML file, interactively prompts for metadata, and saves changes."""
+    print("\n" + "=" * 80)
+    print(f" EDITING FILE: {filepath}")
+    print("=" * 80)
+
+    with open(filepath, "r", encoding="utf-8") as f:
+        soup = BeautifulSoup(f, "html.parser")
+
+    # -------------------------------------------------------------------------
+    # 1. PAGE TITLE (<title>)
+    # -------------------------------------------------------------------------
+    title_tag = soup.find("title")
+    current_title = title_tag.string.strip() if (title_tag and title_tag.string) else ""
+    new_title = prompt_for_field("Page Title (<title>)", current_title)
+    if title_tag:
+        title_tag.string = new_title
+
+    # -------------------------------------------------------------------------
+    # 2. META DESCRIPTION (<meta name="description">)
+    # -------------------------------------------------------------------------
+    meta_desc = soup.find("meta", attrs={"name": "description"})
+    current_desc = meta_desc["content"].strip() if (meta_desc and meta_desc.get("content")) else ""
+    new_desc = prompt_for_field("Meta Description (Search Engines)", current_desc)
+    if meta_desc:
+        meta_desc["content"] = new_desc
+
+    # -------------------------------------------------------------------------
+    # 3. OPEN GRAPH TITLE (<meta property="og:title">)
+    # -------------------------------------------------------------------------
+    og_title = soup.find("meta", property="og:title")
+    current_og_title = og_title["content"].strip() if (og_title and og_title.get("content")) else new_title
+    new_og_title = prompt_for_field("Open Graph Title (og:title)", current_og_title)
+    if og_title:
+        og_title["content"] = new_og_title
+
+    # -------------------------------------------------------------------------
+    # 4. OPEN GRAPH DESCRIPTION (<meta property="og:description">)
+    # -------------------------------------------------------------------------
+    og_desc = soup.find("meta", property="og:description")
+    current_og_desc = og_desc["content"].strip() if (og_desc and og_desc.get("content")) else new_desc
+    new_og_desc = prompt_for_field("Open Graph Description (og:description)", current_og_desc)
+    if og_desc:
+        og_desc["content"] = new_og_desc
+
+    # -------------------------------------------------------------------------
+    # 5. OPEN GRAPH IMAGE (<meta property="og:image">)
+    # -------------------------------------------------------------------------
+    og_img = soup.find("meta", property="og:image")
+    current_og_img = og_img["content"].strip() if (og_img and og_img.get("content")) else ""
+    new_og_img = prompt_for_field("Open Graph / Feature Image Path (og:image)", current_og_img)
+    if og_img:
+        og_img["content"] = new_og_img
+
+    # -------------------------------------------------------------------------
+    # 6. JSON-LD SCHEMA GRAPH (YOAST SYNCHRONIZATION)
+    # -------------------------------------------------------------------------
+    schema_script = soup.find("script", type="application/ld+json", class_="yoast-schema-graph")
+    if schema_script and schema_script.string:
+        try:
+            schema_data = json.loads(schema_script.string)
+            if "@graph" in schema_data:
+                for item in schema_data["@graph"]:
+                    # Update WebPage metadata
+                    if item.get("@type") == "WebPage":
+                        item["name"] = new_title
+                        item["description"] = new_desc
+                        if new_og_img:
+                            item["thumbnailUrl"] = new_og_img
+                    
+                    # Update ImageObject if primary image reference exists
+                    elif item.get("@type") == "ImageObject" and item.get("@id", "").endswith("#primaryimage"):
+                        if new_og_img:
+                            item["url"] = new_og_img
+                            item["contentUrl"] = new_og_img
+
+            schema_script.string = json.dumps(schema_data, indent=2)
+        except Exception as e:
+            print(f"[Warning] Could not parse/update JSON-LD Schema: {e}")
+
+    # Write changes back to the HTML file
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(str(soup))
+
+    print(f"\n[✓] Successfully updated: {filepath}\n")
+
+def run_meta_interactive():
+    file_paths = []
+    
+    # Collect all HTML files
+    for root, _, files in os.walk(DIRECTORY):
+        for file in files:
+            if file.endswith(EXTENSION):
+                file_paths.append(os.path.join(root, file))
+
+    total_files = len(file_paths)
+    print(f"Found {total_files} HTML file(s) to review.")
+
+    for idx, filepath in enumerate(file_paths, start=1):
+        print(f"\nProgress: File {idx} of {total_files}")
+        process_html_file(filepath)
+
+    print("\n" + "=" * 80)
+    print(" ALL FILES HAVE BEEN PROCESSED AND UPDATED!")
+    print("=" * 80)
+
+
+def update_modified_times(DIRECTORY=".", EXTENSION=".html"):
+    # Generate the current UTC timestamp in ISO 8601 format (e.g., "2026-08-11T13:43:41+00:00")
+    current_iso_time = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S+00:00")
+    
+    file_paths = []
+    for root, _, files in os.walk(DIRECTORY):
+        for file in files:
+            if file.endswith(EXTENSION):
+                file_paths.append(os.path.join(root, file))
+
+    print(f"Updating modified timestamp to '{current_iso_time}' across {len(file_paths)} file(s)...\n")
+
+    updated_count = 0
+
+    for filepath in file_paths:
+        with open(filepath, "r", encoding="utf-8") as f:
+            soup = BeautifulSoup(f, "html.parser")
+
+        file_changed = False
+
+        # 1. Update <meta property="article:modified_time" content="..." />
+        meta_modified = soup.find("meta", property="article:modified_time")
+        if meta_modified:
+            meta_modified["content"] = current_iso_time
+            file_changed = True
+
+        # 2. Update JSON-LD Schema "dateModified"
+        schema_script = soup.find("script", type="application/ld+json", class_="yoast-schema-graph")
+        if schema_script and schema_script.string:
+            try:
+                schema_data = json.loads(schema_script.string)
+                if "@graph" in schema_data:
+                    for item in schema_data["@graph"]:
+                        # Update dateModified wherever it exists in the schema graph
+                        if "dateModified" in item:
+                            item["dateModified"] = current_iso_time
+                            file_changed = True
+
+                schema_script.string = json.dumps(schema_data, indent=2)
+            except Exception as e:
+                print(f"[Warning] Could not parse JSON-LD in {filepath}: {e}")
+
+        # Save back to file if changes were made
+        if file_changed:
+            with open(filepath, "w", encoding="utf-8") as f:
+                f.write(str(soup))
+            print(f"[✓] Updated timestamp in: {filepath}")
+            updated_count += 1
+        else:
+            print(f"[-] No modified_time meta tags found in: {filepath}")
+
+    print("\n" + "=" * 60)
+    print(f" COMPLETE: Updated {updated_count} out of {len(file_paths)} files.")
+    print("=" * 60)
+
