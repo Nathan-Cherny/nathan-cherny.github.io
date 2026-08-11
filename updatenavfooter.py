@@ -1078,10 +1078,15 @@ for root, dirs, files in os.walk(directory):
             # Join root and file to get the full path
             file_paths.append(os.path.join(root, file))
 
-
 for fileName in file_paths:
-
-    path = fileName.split("\\")[-2]
+    # 1. Extract the folder name (e.g., "." or "transform-your-sheets")
+    path_folder = fileName.split("\\")[-2]
+    
+    # 2. Determine the correct URL path based on the folder
+    url_path = "/" if path_folder == "." else f"/{path_folder}/"
+    
+    # 3. Create a formatted title for the breadcrumb (e.g., "Transform Your Sheets")
+    page_name = path_folder.replace("-", " ").title() if path_folder != "." else "Home"
 
     with open(fileName, "r", encoding="utf-8") as file:
         htmlContent = file.read()
@@ -1092,7 +1097,6 @@ for fileName in file_paths:
         #     headerFirstLine
         #     + htmlContent.split("""<main id="site-content">""")[0].split(headerFirstLine)[1]
         # )
-
         # htmlContent = htmlContent.replace(header, newHeader)
 
         # -- CURRENT-MENU-ITEM --
@@ -1100,29 +1104,76 @@ for fileName in file_paths:
         # l = [
         #     contentSplit.index(i) - 2
         #     for i in contentSplit
-        #     if f'<a href="/{path}/"' in i
+        #     if f'<a href="/{path_folder}/"' in i
         # ]
         # a = [i for i in l if "menu-item" in contentSplit[i]]
-        # if len(a) == 0:
-        #     continue
-        # contentSplit[a[0]] = contentSplit[a[0]].replace(
-        #     'class="', 'class="current-menu-item '
-        # )
-
+        # if len(a) != 0:
+        #     contentSplit[a[0]] = contentSplit[a[0]].replace(
+        #         'class="', 'class="current-menu-item '
+        #     )
         # htmlContent = "\n".join(contentSplit)
 
         # -- HEAD --
-        # headFirstLine = """<head>"""
-        # head = headFirstLine + htmlContent.split("</head>")[0].split(headFirstLine)[1]
+        headFirstLine = """<head>"""
+        if headFirstLine in htmlContent and "</head>" in htmlContent:
+            head = headFirstLine + htmlContent.split("</head>")[0].split(headFirstLine)[1]
 
-        # htmlContent = htmlContent.replace(head, newHead)
+            # Create a copy of your newHead template for this specific file
+            custom_head = newHead
+            
+            # Update canonical and OG URLs
+            custom_head = custom_head.replace(
+                '<link rel="canonical" href="/" />', 
+                f'<link rel="canonical" href="{url_path}" />'
+            )
+            custom_head = custom_head.replace(
+                '<meta property="og:url" content="/" />', 
+                f'<meta property="og:url" content="{url_path}" />'
+            )
+            
+            # Update the Yoast JSON-LD URLs (WebPage ID, URL, and Website ID)
+            custom_head = custom_head.replace('"@id": "/"', f'"@id": "{url_path}"')
+            custom_head = custom_head.replace('"url": "/"', f'"url": "{url_path}"')
+            custom_head = custom_head.replace('"/#website"', f'"{url_path}#website"')
+            
+            # Generate the dynamic Breadcrumb JSON
+            if url_path == "/":
+                breadcrumb_json = """{
+            "@type": "BreadcrumbList",
+            "@id": "/#breadcrumb",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xsotec.com/" }
+            ]
+          }"""
+            else:
+                breadcrumb_json = f"""{{
+            "@type": "BreadcrumbList",
+            "@id": "{url_path}#breadcrumb",
+            "itemListElement": [
+              {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xsotec.com/" }},
+              {{ "@type": "ListItem", "position": 2, "name": "{page_name}", "item": "https://xsotec.com{url_path}" }}
+            ]
+          }}"""
+
+            # Target the exact breadcrumb block in your newHead string to replace it
+            old_breadcrumb = """{
+            "@type": "BreadcrumbList",
+            "@id": "/#breadcrumb",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home" }
+            ]
+          }"""
+            custom_head = custom_head.replace(old_breadcrumb, breadcrumb_json)
+
+            # Inject the customized head into the HTML content
+            htmlContent = htmlContent.replace(head, custom_head)
 
         # -- FOOTER --
-        footerFirstLine = "</main>"
-        footerLastLine = """<script type="speculationrules">"""
-        footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0]
-
-        htmlContent = htmlContent.replace(footer, newFooter)
+        # footerFirstLine = "</main>"
+        # footerLastLine = """<script type="speculationrules">"""
+        # if footerFirstLine in htmlContent and footerLastLine in htmlContent:
+        #     footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0]
+        #     htmlContent = htmlContent.replace(footer, newFooter)
 
     with open(fileName, "w", encoding="utf-8") as file:
         file.write(htmlContent)
