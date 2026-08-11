@@ -1067,6 +1067,10 @@ newHead = """
       media="all"
     />"""
 
+
+# ACTUAL CODE
+
+
 directory = "."
 extension = ".html"
 file_paths = []
@@ -1079,14 +1083,14 @@ for root, dirs, files in os.walk(directory):
             file_paths.append(os.path.join(root, file))
 
 for fileName in file_paths:
-    # 1. Extract the folder name (e.g., "." or "transform-your-sheets")
-    path_folder = fileName.split("\\")[-2]
+    # 1. Get the directory path of the current file
+    dir_path = os.path.dirname(fileName)
     
-    # 2. Determine the correct URL path based on the folder
-    url_path = "/" if path_folder == "." else f"/{path_folder}/"
+    # 2. Get the relative path from the base directory and normalize slashes for the web
+    rel_dir = os.path.relpath(dir_path, directory).replace("\\", "/")
     
-    # 3. Create a formatted title for the breadcrumb (e.g., "Transform Your Sheets")
-    page_name = path_folder.replace("-", " ").title() if path_folder != "." else "Home"
+    # 3. Determine the correct full URL path
+    url_path = "/" if rel_dir == "." else f"/{rel_dir}/"
 
     with open(fileName, "r", encoding="utf-8") as file:
         htmlContent = file.read()
@@ -1100,18 +1104,7 @@ for fileName in file_paths:
         # htmlContent = htmlContent.replace(header, newHeader)
 
         # -- CURRENT-MENU-ITEM --
-        # contentSplit = htmlContent.split("\n")
-        # l = [
-        #     contentSplit.index(i) - 2
-        #     for i in contentSplit
-        #     if f'<a href="/{path_folder}/"' in i
-        # ]
-        # a = [i for i in l if "menu-item" in contentSplit[i]]
-        # if len(a) != 0:
-        #     contentSplit[a[0]] = contentSplit[a[0]].replace(
-        #         'class="', 'class="current-menu-item '
-        #     )
-        # htmlContent = "\n".join(contentSplit)
+        # (Your menu item logic goes here)
 
         # -- HEAD --
         headFirstLine = """<head>"""
@@ -1136,7 +1129,7 @@ for fileName in file_paths:
             custom_head = custom_head.replace('"url": "/"', f'"url": "{url_path}"')
             custom_head = custom_head.replace('"/#website"', f'"{url_path}#website"')
             
-            # Generate the dynamic Breadcrumb JSON
+            # 4. Generate the dynamic Breadcrumb JSON based on folder depth
             if url_path == "/":
                 breadcrumb_json = """{
             "@type": "BreadcrumbList",
@@ -1146,12 +1139,28 @@ for fileName in file_paths:
             ]
           }"""
             else:
+                # Split the URL path into parts (e.g. ['case-studies', 'b21'])
+                parts = [p for p in url_path.split("/") if p]
+                
+                # Start with the Home item
+                items = ['{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xsotec.com/" }']
+                
+                current_path = ""
+                # Build the subsequent breadcrumbs dynamically
+                for i, part in enumerate(parts):
+                    current_path += f"/{part}"
+                    # Format names nicely (e.g. 'case-studies' -> 'Case Studies')
+                    page_name = part.replace("-", " ").title()
+                    items.append(f'{{ "@type": "ListItem", "position": {i + 2}, "name": "{page_name}", "item": "https://xsotec.com{current_path}/" }}')
+                
+                # Join the items list with a comma and newline for clean JSON formatting
+                items_str = ",\n              ".join(items)
+                
                 breadcrumb_json = f"""{{
             "@type": "BreadcrumbList",
             "@id": "{url_path}#breadcrumb",
             "itemListElement": [
-              {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xsotec.com/" }},
-              {{ "@type": "ListItem", "position": 2, "name": "{page_name}", "item": "https://xsotec.com{url_path}" }}
+              {items_str}
             ]
           }}"""
 
@@ -1169,11 +1178,11 @@ for fileName in file_paths:
             htmlContent = htmlContent.replace(head, custom_head)
 
         # -- FOOTER --
-        # footerFirstLine = "</main>"
-        # footerLastLine = """<script type="speculationrules">"""
-        # if footerFirstLine in htmlContent and footerLastLine in htmlContent:
-        #     footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0]
-        #     htmlContent = htmlContent.replace(footer, newFooter)
+        footerFirstLine = "</main>"
+        footerLastLine = """<script type="speculationrules">"""
+        if footerFirstLine in htmlContent and footerLastLine in htmlContent:
+            footer = footerFirstLine + htmlContent.split(footerFirstLine)[1].split(footerLastLine)[0]
+            htmlContent = htmlContent.replace(footer, newFooter)
 
     with open(fileName, "w", encoding="utf-8") as file:
         file.write(htmlContent)
