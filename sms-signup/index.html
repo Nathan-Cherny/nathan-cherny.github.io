@@ -5,108 +5,59 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <link href="https://gmpg.org/xfn/11" rel="profile"/>
   <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
-  <!-- Google tag (gtag.js) consent mode dataLayer added by Site Kit -->
-  <script id="google_gtagjs-js-consent-mode-data-layer">
-   window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("consent", "default", {
-        ad_personalization: "denied",
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        analytics_storage: "denied",
-        functionality_storage: "denied",
-        security_storage: "denied",
-        personalization_storage: "denied",
-        region: [
-          "AT",
-          "BE",
-          "BG",
-          "CH",
-          "CY",
-          "CZ",
-          "DE",
-          "DK",
-          "EE",
-          "ES",
-          "FI",
-          "FR",
-          "GB",
-          "GR",
-          "HR",
-          "HU",
-          "IE",
-          "IS",
-          "IT",
-          "LI",
-          "LT",
-          "LU",
-          "LV",
-          "MT",
-          "NL",
-          "NO",
-          "PL",
-          "PT",
-          "RO",
-          "SE",
-          "SI",
-          "SK",
-        ],
-        wait_for_update: 500,
-      });
-      window._googlesitekitConsentCategoryMap = {
-        statistics: ["analytics_storage"],
-        marketing: ["ad_storage", "ad_user_data", "ad_personalization"],
-        functional: ["functionality_storage", "security_storage"],
-        preferences: ["personalization_storage"],
-      };
-      window._googlesitekitConsents = {
-        ad_personalization: "denied",
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        analytics_storage: "denied",
-        functionality_storage: "denied",
-        security_storage: "denied",
-        personalization_storage: "denied",
-        region: [
-          "AT",
-          "BE",
-          "BG",
-          "CH",
-          "CY",
-          "CZ",
-          "DE",
-          "DK",
-          "EE",
-          "ES",
-          "FI",
-          "FR",
-          "GB",
-          "GR",
-          "HR",
-          "HU",
-          "IE",
-          "IS",
-          "IT",
-          "LI",
-          "LT",
-          "LU",
-          "LV",
-          "MT",
-          "NL",
-          "NO",
-          "PL",
-          "PT",
-          "RO",
-          "SE",
-          "SI",
-          "SK",
-        ],
-        wait_for_update: 500,
-      };
-  </script>
-  <!-- End Google tag (gtag.js) consent mode dataLayer added by Site Kit -->
+  <!-- Google tag (gtag.js) consent mode dataLayer (Domain Restricted) -->
+<script id="google_gtagjs-js-consent-mode-data-layer">
+  var allowedDomains = [
+    "xsotec.com", 
+    "www.xsotec.com"
+  ];
+
+  if (allowedDomains.indexOf(window.location.hostname) !== -1) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("consent", "default", {
+      ad_personalization: "denied",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      analytics_storage: "denied",
+      functionality_storage: "denied",
+      security_storage: "denied",
+      personalization_storage: "denied",
+      region: [
+        "AT", "BE", "BG", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI",
+        "FR", "GB", "GR", "HR", "HU", "IE", "IS", "IT", "LI", "LT", "LU",
+        "LV", "MT", "NL", "NO", "PL", "PT", "RO", "SE", "SI", "SK",
+      ],
+      wait_for_update: 500,
+    });
+    window._googlesitekitConsentCategoryMap = {
+      statistics: ["analytics_storage"],
+      marketing: ["ad_storage", "ad_user_data", "ad_personalization"],
+      functional: ["functionality_storage", "security_storage"],
+      preferences: ["personalization_storage"],
+    };
+    window._googlesitekitConsents = {
+      ad_personalization: "denied",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      analytics_storage: "denied",
+      functionality_storage: "denied",
+      security_storage: "denied",
+      personalization_storage: "denied",
+      region: [
+        "AT", "BE", "BG", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI",
+        "FR", "GB", "GR", "HR", "HU", "IE", "IS", "IT", "LI", "LT", "LU",
+        "LV", "MT", "NL", "NO", "PL", "PT", "RO", "SE", "SI", "SK",
+      ],
+      wait_for_update: 500,
+    };
+  } else {
+    console.log("Testing environment detected: Consent Mode blocked.");
+  }
+</script>
+<!-- End Google tag (gtag.js) consent mode dataLayer added by Site Kit -->
   <!-- This site is optimized with the Yoast SEO plugin v21.9.1 - https://yoast.com/wordpress/plugins/seo/ -->
   <title>
    xSoTec - District wide solutions built on Google Sheets
