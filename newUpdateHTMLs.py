@@ -403,10 +403,10 @@ def main():
         choices=["template", "meta", "lastmod", "sitemap", "all"],
         help=(
             "template: apply header/footer/head changes (edit the "
-            "new_header/new_footer/new_head variables in __main__ first) | "
-            "meta: interactively edit per-page title/description/OG tags | "
-            "lastmod: sync each page's modified-time metadata to git history | "
-            "sitemap: regenerate sitemap.xml from git history | "
+            "new_header/new_footer/new_head variables in __main__ first) \n "
+            "meta: interactively edit per-page title/description/OG tags \n "
+            "lastmod: sync each page's modified-time metadata to git history \n "
+            "sitemap: regenerate sitemap.xml from git history \n "
             "all: lastmod + sitemap (recommended after any content edit)"
         ),
     )
