@@ -257,33 +257,51 @@
   <!-- Google tag (gtag.js) snippet added by Site Kit -->
   <!-- Google Analytics snippet added by Site Kit -->
   <!-- Google Ads snippet added by Site Kit -->
-  <script async="" id="google_gtagjs-js" src="https://www.googletagmanager.com/gtag/js?id=GT-MR2R5VG">
-  </script>
-  <script id="google_gtagjs-js-after">
-   window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+  <!-- Google Tag (gtag.js) - Domain Restricted -->
+<script id="google_gtagjs-js-loader">
+  var allowedDomains = [
+    "xsotec.com", 
+    "www.xsotec.com", 
+    "YOUR-MAIN-GITHUB-URL.github.io" // Replace with your live GitHub URL
+  ];
+
+  if (allowedDomains.indexOf(window.location.hostname) !== -1) {
+    // 1. Dynamically load the external gtag.js file
+    var gtagScript = document.createElement("script");
+    gtagScript.async = true;
+    gtagScript.id = "google_gtagjs-js";
+    gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=GT-MR2R5VG";
+    document.head.appendChild(gtagScript);
+
+    // 2. Initialize dataLayer and configure tracking
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("set", "linker", { domains: ["xsotec.com"] });
+    gtag("js", new Date());
+    gtag("set", "developer_id.dZTNiMT", true);
+    gtag("config", "GT-MR2R5VG");
+    gtag("config", "AW-11551650356");
+
+    // Site Kit helper configuration
+    window._googlesitekit = window._googlesitekit || {};
+    window._googlesitekit.throttledEvents = [];
+    window._googlesitekit.gtagEvent = (name, data) => {
+      var key = JSON.stringify({ name, data });
+      if (!!window._googlesitekit.throttledEvents[key]) {
+        return;
       }
-      gtag("set", "linker", { domains: ["xsotec.com"] });
-      gtag("js", new Date());
-      gtag("set", "developer_id.dZTNiMT", true);
-      gtag("config", "GT-MR2R5VG");
-      gtag("config", "AW-11551650356");
-      window._googlesitekit = window._googlesitekit || {};
-      window._googlesitekit.throttledEvents = [];
-      window._googlesitekit.gtagEvent = (name, data) => {
-        var key = JSON.stringify({ name, data });
-        if (!!window._googlesitekit.throttledEvents[key]) {
-          return;
-        }
-        window._googlesitekit.throttledEvents[key] = true;
-        setTimeout(() => {
-          delete window._googlesitekit.throttledEvents[key];
-        }, 5);
-        gtag("event", name, { ...data, event_source: "site-kit" });
-      };
-      //# sourceURL=google_gtagjs-js-after
-  </script>
+      window._googlesitekit.throttledEvents[key] = true;
+      setTimeout(() => {
+        delete window._googlesitekit.throttledEvents[key];
+      }, 5);
+      gtag("event", name, { ...data, event_source: "site-kit" });
+    };
+  } else {
+    console.log("Testing environment detected: Google Tag loading blocked.");
+  }
+</script>
   <link href="/wp-json/" rel="https://api.w.org/"/>
   <link href="/wp-json/wp/v2/pages/977" rel="alternate" title="JSON" type="application/json"/>
   <link href="/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
@@ -312,20 +330,26 @@
         background-color: #ffffff;
       }
   </style>
-  <!-- Google Tag Manager snippet added by Site Kit -->
-  <script>
-   (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-KL68LVZ");
-  </script>
-  <!-- End Google Tag Manager snippet added by Site Kit -->
+  <!-- Google Tag Manager snippet (Domain Restricted) -->
+<script>
+  var allowedDomains = ["xsotec.com", "www.xsotec.com"];
+
+  if (allowedDomains.indexOf(window.location.hostname) !== -1) {
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-KL68LVZ");
+  } else {
+    console.log("Testing environment detected: GTM blocked.");
+  }
+</script>
+<!-- End Google Tag Manager snippet (Domain Restricted) -->
   <style id="uagb-style-conditional-extension">
    @media (min-width: 1025px) {
         body .uag-hide-desktop.uagb-google-map__wrap,
