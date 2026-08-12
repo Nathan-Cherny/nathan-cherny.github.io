@@ -272,6 +272,8 @@ def process_html_file(filepath: Path) -> None:
 
     _sync_json_ld_schema(soup, new_title, new_desc, new_og_img)
 
+    soup = soup.prettify()
+
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(str(soup))
 
@@ -343,6 +345,8 @@ def update_lastmod_metadata(base_dir: str = DIRECTORY) -> None:
 
         _update_modified_meta_tag(soup, iso_date)
         _update_json_ld_date_modified(soup, iso_date)
+
+        soup = soup.prettify()
 
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(str(soup))
