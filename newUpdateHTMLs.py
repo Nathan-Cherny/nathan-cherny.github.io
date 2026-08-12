@@ -58,7 +58,8 @@ def collect_html_files(base_dir: str = DIRECTORY) -> list[Path]:
 
 def file_to_url_path(filepath: Path, base_dir: str = DIRECTORY) -> str:
     """Map a file path to its site URL path, e.g. ./about/index.html -> /about/"""
-    rel_dir = os.path.relpath(os.path.dirname(filepath), base_dir).replace("\\", "/")
+    dir_path = os.path.dirname(filepath) or "."  # empty string means "current dir"
+    rel_dir = os.path.relpath(dir_path, base_dir).replace("\\", "/")
     return "/" if rel_dir == "." else f"/{rel_dir}/"
 
 
@@ -272,10 +273,8 @@ def process_html_file(filepath: Path) -> None:
 
     _sync_json_ld_schema(soup, new_title, new_desc, new_og_img)
 
-    soup = soup.prettify()
-
     with open(filepath, "w", encoding="utf-8") as f:
-        f.write(str(soup))
+        f.write(soup.prettify())
 
     print(f"\n[OK] Successfully updated: {filepath}\n")
 
@@ -346,10 +345,8 @@ def update_lastmod_metadata(base_dir: str = DIRECTORY) -> None:
         _update_modified_meta_tag(soup, iso_date)
         _update_json_ld_date_modified(soup, iso_date)
 
-        soup = soup.prettify()
-
         with open(filepath, "w", encoding="utf-8") as f:
-            f.write(str(soup))
+            f.write(soup.prettify())
         updated += 1
 
     print(f"Lastmod sync complete: {updated} updated, {skipped} skipped.")
@@ -407,10 +404,10 @@ def main():
         choices=["template", "meta", "lastmod", "sitemap", "all"],
         help=(
             "template: apply header/footer/head changes (edit the "
-            "new_header/new_footer/new_head variables in __main__ first) \n "
-            "meta: interactively edit per-page title/description/OG tags \n "
-            "lastmod: sync each page's modified-time metadata to git history \n "
-            "sitemap: regenerate sitemap.xml from git history \n "
+            "new_header/new_footer/new_head variables in __main__ first) | "
+            "meta: interactively edit per-page title/description/OG tags | "
+            "lastmod: sync each page's modified-time metadata to git history | "
+            "sitemap: regenerate sitemap.xml from git history | "
             "all: lastmod + sitemap (recommended after any content edit)"
         ),
     )
