@@ -9,132 +9,132 @@
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
       name="robots"
     />
-    <!-- Google tag (gtag.js) consent mode dataLayer added by Site Kit -->
+    <!-- Google tag (gtag.js) consent mode dataLayer (Domain Restricted) -->
     <script id="google_gtagjs-js-consent-mode-data-layer">
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      var allowedDomains = ["xsotec.com", "www.xsotec.com"];
+
+      if (allowedDomains.indexOf(window.location.hostname) !== -1) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("consent", "default", {
+          ad_personalization: "denied",
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          analytics_storage: "denied",
+          functionality_storage: "denied",
+          security_storage: "denied",
+          personalization_storage: "denied",
+          region: [
+            "AT",
+            "BE",
+            "BG",
+            "CH",
+            "CY",
+            "CZ",
+            "DE",
+            "DK",
+            "EE",
+            "ES",
+            "FI",
+            "FR",
+            "GB",
+            "GR",
+            "HR",
+            "HU",
+            "IE",
+            "IS",
+            "IT",
+            "LI",
+            "LT",
+            "LU",
+            "LV",
+            "MT",
+            "NL",
+            "NO",
+            "PL",
+            "PT",
+            "RO",
+            "SE",
+            "SI",
+            "SK",
+          ],
+          wait_for_update: 500,
+        });
+        window._googlesitekitConsentCategoryMap = {
+          statistics: ["analytics_storage"],
+          marketing: ["ad_storage", "ad_user_data", "ad_personalization"],
+          functional: ["functionality_storage", "security_storage"],
+          preferences: ["personalization_storage"],
+        };
+        window._googlesitekitConsents = {
+          ad_personalization: "denied",
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          analytics_storage: "denied",
+          functionality_storage: "denied",
+          security_storage: "denied",
+          personalization_storage: "denied",
+          region: [
+            "AT",
+            "BE",
+            "BG",
+            "CH",
+            "CY",
+            "CZ",
+            "DE",
+            "DK",
+            "EE",
+            "ES",
+            "FI",
+            "FR",
+            "GB",
+            "GR",
+            "HR",
+            "HU",
+            "IE",
+            "IS",
+            "IT",
+            "LI",
+            "LT",
+            "LU",
+            "LV",
+            "MT",
+            "NL",
+            "NO",
+            "PL",
+            "PT",
+            "RO",
+            "SE",
+            "SI",
+            "SK",
+          ],
+          wait_for_update: 500,
+        };
+      } else {
+        console.log("Testing environment detected: Consent Mode blocked.");
       }
-      gtag("consent", "default", {
-        ad_personalization: "denied",
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        analytics_storage: "denied",
-        functionality_storage: "denied",
-        security_storage: "denied",
-        personalization_storage: "denied",
-        region: [
-          "AT",
-          "BE",
-          "BG",
-          "CH",
-          "CY",
-          "CZ",
-          "DE",
-          "DK",
-          "EE",
-          "ES",
-          "FI",
-          "FR",
-          "GB",
-          "GR",
-          "HR",
-          "HU",
-          "IE",
-          "IS",
-          "IT",
-          "LI",
-          "LT",
-          "LU",
-          "LV",
-          "MT",
-          "NL",
-          "NO",
-          "PL",
-          "PT",
-          "RO",
-          "SE",
-          "SI",
-          "SK",
-        ],
-        wait_for_update: 500,
-      });
-      window._googlesitekitConsentCategoryMap = {
-        statistics: ["analytics_storage"],
-        marketing: ["ad_storage", "ad_user_data", "ad_personalization"],
-        functional: ["functionality_storage", "security_storage"],
-        preferences: ["personalization_storage"],
-      };
-      window._googlesitekitConsents = {
-        ad_personalization: "denied",
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        analytics_storage: "denied",
-        functionality_storage: "denied",
-        security_storage: "denied",
-        personalization_storage: "denied",
-        region: [
-          "AT",
-          "BE",
-          "BG",
-          "CH",
-          "CY",
-          "CZ",
-          "DE",
-          "DK",
-          "EE",
-          "ES",
-          "FI",
-          "FR",
-          "GB",
-          "GR",
-          "HR",
-          "HU",
-          "IE",
-          "IS",
-          "IT",
-          "LI",
-          "LT",
-          "LU",
-          "LV",
-          "MT",
-          "NL",
-          "NO",
-          "PL",
-          "PT",
-          "RO",
-          "SE",
-          "SI",
-          "SK",
-        ],
-        wait_for_update: 500,
-      };
     </script>
     <!-- End Google tag (gtag.js) consent mode dataLayer added by Site Kit -->
     <!-- This site is optimized with the Yoast SEO plugin v21.9.1 - https://yoast.com/wordpress/plugins/seo/ -->
-    <title>xSoTec - Page Not Found</title>
+    <title>xSoTec - Thank You!</title>
     <meta
-      content="Build competency-based, restorative behavior, learner profile systems, and more. xSoTec helps you create district-wide solutions specifically for your organization."
+      content="Thank you page for filling out our interest form"
       name="description"
     />
-    <link href="/" rel="canonical" />
+    <link href="/thank-you/" rel="canonical" />
     <meta content="en_US" property="og:locale" />
     <meta content="website" property="og:type" />
-    <meta content="xSoTec - Page Not Found" property="og:title" />
+    <meta content="xSoTec - Thank You!" property="og:title" />
     <meta
-      content="Build competency-based, restorative behavior, learner profile systems, and more. xSoTec helps you create district-wide solutions specifically for your organization."
+      content="Thank you page for filling out our interest form"
       property="og:description"
     />
-    <meta content="/" property="og:url" />
+    <meta content="/thank-you/" property="og:url" />
     <meta content="xSoTec" property="og:site_name" />
-    <meta
-      content="2026-08-11T17:44:10+00:00"
-      property="article:modified_time"
-    />
-    <meta
-      content="/wp-content/uploads/2024/01/GfE-Partner-Badges-Horizontal.png"
-      property="og:image"
-    />
+
+    <meta content="" property="og:image" />
     <meta content="summary_large_image" name="twitter:card" />
     <script class="yoast-schema-graph" type="application/ld+json">
       {
@@ -144,7 +144,7 @@
             "@type": "WebPage",
             "@id": "/",
             "url": "/",
-            "name": "xSoTec - Page Not Found",
+            "name": "xSoTec - Thank You!",
             "isPartOf": {
               "@id": "/#website"
             },
@@ -158,9 +158,9 @@
               "@id": "/#primaryimage"
             },
             "thumbnailUrl": "/wp-content/uploads/2024/01/GfE-Partner-Badges-Horizontal.png",
-            "datePublished": "2023-02-21T16:20:27+00:00",
-            "dateModified": "2026-08-11T17:44:10+00:00",
-            "description": "Build competency-based, restorative behavior, learner profile systems, and more. xSoTec helps you create district-wide solutions specifically for your organization.",
+            "datePublished": "2026-08-14T19:35:24.955Z",
+            "dateModified": "2026-08-14T19:35:24.955Z",
+            "description": "Thank you page for filling out our interest form",
             "breadcrumb": {
               "@id": "/#breadcrumb"
             },
@@ -415,35 +415,53 @@
     <!-- Google tag (gtag.js) snippet added by Site Kit -->
     <!-- Google Analytics snippet added by Site Kit -->
     <!-- Google Ads snippet added by Site Kit -->
-    <script
-      async=""
-      id="google_gtagjs-js"
-      src="https://www.googletagmanager.com/gtag/js?id=GT-MR2R5VG"
-    ></script>
-    <script id="google_gtagjs-js-after">
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("set", "linker", { domains: ["xsotec.com"] });
-      gtag("js", new Date());
-      gtag("set", "developer_id.dZTNiMT", true);
-      gtag("config", "GT-MR2R5VG");
-      gtag("config", "AW-11551650356");
-      window._googlesitekit = window._googlesitekit || {};
-      window._googlesitekit.throttledEvents = [];
-      window._googlesitekit.gtagEvent = (name, data) => {
-        var key = JSON.stringify({ name, data });
-        if (!!window._googlesitekit.throttledEvents[key]) {
-          return;
+    <!-- Google Tag (gtag.js) - Domain Restricted -->
+    <script id="google_gtagjs-js-loader">
+      var allowedDomains = ["xsotec.com", "www.xsotec.com"];
+
+      if (allowedDomains.indexOf(window.location.hostname) !== -1) {
+        // 1. Dynamically load the external gtag.js file
+        var gtagScript = document.createElement("script");
+        gtagScript.async = true;
+        gtagScript.id = "google_gtagjs-js";
+        gtagScript.src =
+          "https://www.googletagmanager.com/gtag/js?id=GT-MR2R5VG";
+        document.head.appendChild(gtagScript);
+
+        // 2. Initialize dataLayer and configure tracking
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
         }
-        window._googlesitekit.throttledEvents[key] = true;
-        setTimeout(() => {
-          delete window._googlesitekit.throttledEvents[key];
-        }, 5);
-        gtag("event", name, { ...data, event_source: "site-kit" });
-      };
-      //# sourceURL=google_gtagjs-js-after
+        gtag("set", "linker", { domains: ["xsotec.com"] });
+        gtag("js", new Date());
+        gtag("set", "developer_id.dZTNiMT", true);
+        gtag("config", "GT-MR2R5VG");
+        gtag("config", "AW-11551650356");
+
+        // Site Kit helper configuration
+        window._googlesitekit = window._googlesitekit || {};
+        window._googlesitekit.throttledEvents = [];
+        window._googlesitekit.gtagEvent = (name, data) => {
+          var key = JSON.stringify({ name, data });
+          if (!!window._googlesitekit.throttledEvents[key]) {
+            return;
+          }
+          window._googlesitekit.throttledEvents[key] = true;
+          setTimeout(() => {
+            delete window._googlesitekit.throttledEvents[key];
+          }, 5);
+          gtag("event", name, { ...data, event_source: "site-kit" });
+        };
+      } else {
+        console.log(
+          "Testing environment detected: Google Tag loading blocked.",
+        );
+      }
+    </script>
+    <!-- Event snippet for Interest Form Submission conversion page -->
+    <script>
+      gtag('event', 'conversion', {'send_to': 'AW-11551650356/l2-zCP3Q2eEcELTkoIQr'});
     </script>
     <link href="/wp-json/" rel="https://api.w.org/" />
     <link
@@ -460,15 +478,15 @@
     />
     <link href="/" rel="shortlink" />
     <meta content="Site Kit by Google 1.182.0" name="generator" />
-    <noscript
-      ><style>
+    <noscript>
+      <style>
         .tw-block-animation {
           opacity: 1;
           transform: none;
           clip-path: none;
         }
-      </style></noscript
-    >
+      </style>
+    </noscript>
     <script>
       document.documentElement.className =
         document.documentElement.className.replace("no-js", "js");
@@ -489,20 +507,26 @@
         background-color: #ffffff;
       }
     </style>
-    <!-- Google Tag Manager snippet added by Site Kit -->
+    <!-- Google Tag Manager snippet (Domain Restricted) -->
     <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-KL68LVZ");
+      var allowedDomains = ["xsotec.com", "www.xsotec.com"];
+
+      if (allowedDomains.indexOf(window.location.hostname) !== -1) {
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-KL68LVZ");
+      } else {
+        console.log("Testing environment detected: GTM blocked.");
+      }
     </script>
-    <!-- End Google Tag Manager snippet added by Site Kit -->
+    <!-- End Google Tag Manager snippet (Domain Restricted) -->
     <style id="uagb-style-conditional-extension">
       @media (min-width: 1025px) {
         body .uag-hide-desktop.uagb-google-map__wrap,
@@ -579,12 +603,13 @@
         src="https://www.googletagmanager.com/ns.html?id=GTM-KL68LVZ"
         style="display: none; visibility: hidden"
         width="0"
-      ></iframe>
+      >
+      </iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) snippet added by Site Kit -->
-    <a class="skip-link screen-reader-text" href="#site-content"
-      >Skip to the content</a
-    >
+    <a class="skip-link screen-reader-text" href="#site-content">
+      Skip to the content
+    </a>
     <header class="header-footer-group" id="site-header">
       <div class="header-inner section-inner">
         <div class="header-titles-wrapper">
@@ -596,7 +621,8 @@
                   class="custom-logo-link"
                   href="/"
                   rel="home"
-                  ><img
+                >
+                  <img
                     alt="xSoTec"
                     class="custom-logo"
                     decoding="async"
@@ -605,8 +631,10 @@
                     sizes="(max-width: 3761px) 100vw, 3761px"
                     src="/wp-content/uploads/2020/08/cropped-xSoTec-Logo-w-Name-2-1024x767.png"
                     style="height: 1411px"
-                    width="1880" /></a
-                ><span class="screen-reader-text">xSoTec</span>
+                    width="1880"
+                  />
+                </a>
+                <span class="screen-reader-text"> xSoTec </span>
                 <div class="header-divider"></div>
                 <img
                   alt="Google for Education Partner"
@@ -643,9 +671,10 @@
                   ></path>
                 </svg>
               </span>
-              <span class="toggle-text">Menu</span>
-            </span></button
-          ><!-- .nav-toggle -->
+              <span class="toggle-text"> Menu </span>
+            </span>
+          </button>
+          <!-- .nav-toggle -->
         </div>
         <!-- .header-titles-wrapper -->
         <div class="header-navigation-wrapper">
@@ -655,47 +684,48 @@
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-23"
                 id="menu-item-23"
               >
-                <a href="/">Home</a>
+                <a href="/"> Home </a>
               </li>
               <li
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-813"
                 id="menu-item-813"
               >
-                <a>Services</a><span class="icon"></span>
+                <a> Services </a>
+                <span class="icon"> </span>
                 <ul class="sub-menu">
                   <li
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-998"
                     id="menu-item-998"
                   >
-                    <a href="/custom-development/">Custom Development</a>
+                    <a href="/custom-development/"> Custom Development </a>
                   </li>
                   <li
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
                     id="menu-item-964"
                   >
-                    <a href="/transform-your-sheets/"
-                      >Organize &amp; Automate Your Sheets</a
-                    >
+                    <a href="/transform-your-sheets/">
+                      Organize &amp; Automate Your Sheets
+                    </a>
                   </li>
                   <li
                     class="menu-item menu-item-type-post_type menu-item-object-page"
                     id=""
                   >
-                    <a href="/consolidate-data/">Unify Your Disparate Data</a>
+                    <a href="/consolidate-data/"> Unify Your Disparate Data </a>
                   </li>
                   <li
                     class="menu-item menu-item-type-post_type menu-item-object-page"
                     id=""
                   >
-                    <a href="/prototype-functional-models/"
-                      >Prototype Functional Models</a
-                    >
+                    <a href="/prototype-functional-models/">
+                      Prototype Functional Models
+                    </a>
                   </li>
                   <li
                     class="menu-item menu-item-type-post_type menu-item-object-page"
                     id=""
                   >
-                    <a href="/our-tools/">Use Our Tools</a>
+                    <a href="/our-tools/"> Use Our Tools </a>
                   </li>
                 </ul>
               </li>
@@ -703,49 +733,44 @@
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
                 id="menu-item-814"
               >
-                <a href="/request-a-demo/">Interest Form</a>
+                <a href="/request-a-demo/"> Interest Form </a>
               </li>
               <li
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
                 id="menu-item-999"
               >
-                <a href="/case-studies/">Success Stories</a>
+                <a href="/case-studies/"> Success Stories </a>
               </li>
               <li
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
                 id="menu-item-999"
               >
-                <a href="/how-we-work/">How We Work</a>
+                <a href="/how-we-work/"> How We Work </a>
               </li>
-              <!-- <li
-                id="menu-item-999"
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
-              >
-                <a href="/case-studies/">Case Studies</a>
-              </li> -->
               <li
                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-788"
                 id="menu-item-788"
               >
-                <a>Meet xSoTec</a><span class="icon"></span>
+                <a> Meet xSoTec </a>
+                <span class="icon"> </span>
                 <ul class="sub-menu">
                   <li
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-177"
                     id="menu-item-177"
                   >
-                    <a href="/about/">Our Story</a>
+                    <a href="/about/"> Our Story </a>
                   </li>
                   <li
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-65"
                     id="menu-item-65"
                   >
-                    <a href="/contact/">Contact Us</a>
+                    <a href="/contact/"> Contact Us </a>
                   </li>
                   <li
                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1026"
                     id="menu-item-1026"
                   >
-                    <a href="/xsotec-blog/">Blog</a>
+                    <a href="/xsotec-blog/"> Blog </a>
                   </li>
                 </ul>
               </li>
@@ -771,7 +796,7 @@
               data-toggle-body-class="showing-menu-modal"
               data-toggle-target=".menu-modal"
             >
-              <span class="toggle-text">Close Menu</span>
+              <span class="toggle-text"> Close Menu </span>
               <svg
                 aria-hidden="true"
                 class="svg-icon"
@@ -787,21 +812,24 @@
                   fill-rule="evenodd"
                   points="6.852 7.649 .399 1.195 1.445 .149 7.899 6.602 14.352 .149 15.399 1.195 8.945 7.649 15.399 14.102 14.352 15.149 7.899 8.695 1.445 15.149 .399 14.102"
                 ></polygon>
-              </svg></button
-            ><!-- .nav-toggle -->
+              </svg>
+            </button>
+            <!-- .nav-toggle -->
             <nav aria-label="Mobile" class="mobile-menu">
               <ul class="modal-menu reset-list-style">
                 <li
                   class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-23"
                 >
-                  <div class="ancestor-wrapper"><a href="/">Home</a></div>
+                  <div class="ancestor-wrapper">
+                    <a href="/"> Home </a>
+                  </div>
                   <!-- .ancestor-wrapper -->
                 </li>
                 <li
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-813"
                 >
                   <div class="ancestor-wrapper">
-                    <a>Services</a>
+                    <a> Services </a>
                     <button
                       aria-expanded="false"
                       class="toggle sub-menu-toggle fill-children-current-color"
@@ -809,8 +837,8 @@
                       data-toggle-target=".menu-modal .menu-item-813 &gt; .sub-menu"
                       data-toggle-type="slidetoggle"
                     >
-                      <span class="screen-reader-text">Show sub menu</span
-                      ><svg
+                      <span class="screen-reader-text"> Show sub menu </span>
+                      <svg
                         aria-hidden="true"
                         class="svg-icon"
                         focusable="false"
@@ -835,7 +863,7 @@
                       class="menu-item menu-item-type-post_type menu-item-object-page menu-item-998"
                     >
                       <div class="ancestor-wrapper">
-                        <a href="/custom-development/">Custom Development</a>
+                        <a href="/custom-development/"> Custom Development </a>
                       </div>
                       <!-- .ancestor-wrapper -->
                     </li>
@@ -843,9 +871,9 @@
                       class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
                     >
                       <div class="ancestor-wrapper">
-                        <a href="/transform-your-sheets/"
-                          >Organize &amp; Automate Your Sheets</a
-                        >
+                        <a href="/transform-your-sheets/">
+                          Organize &amp; Automate Your Sheets
+                        </a>
                       </div>
                       <!-- .ancestor-wrapper -->
                     </li>
@@ -853,9 +881,9 @@
                       class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
                     >
                       <div class="ancestor-wrapper">
-                        <a href="/consolidate-data/"
-                          >Unify Your System's Data</a
-                        >
+                        <a href="/consolidate-data/">
+                          Unify Your System's Data
+                        </a>
                       </div>
                       <!-- .ancestor-wrapper -->
                     </li>
@@ -863,9 +891,9 @@
                       class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
                     >
                       <div class="ancestor-wrapper">
-                        <a href="/prototype-functional-models/"
-                          >Prototype Functional Models</a
-                        >
+                        <a href="/prototype-functional-models/">
+                          Prototype Functional Models
+                        </a>
                       </div>
                       <!-- .ancestor-wrapper -->
                     </li>
@@ -873,7 +901,7 @@
                       class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964"
                     >
                       <div class="ancestor-wrapper">
-                        <a href="/our-tools/">Use Our Tools</a>
+                        <a href="/our-tools/"> Use Our Tools </a>
                       </div>
                       <!-- .ancestor-wrapper -->
                     </li>
@@ -883,7 +911,7 @@
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
                 >
                   <div class="ancestor-wrapper">
-                    <a href="/request-a-demo/">Interest Form</a>
+                    <a href="/request-a-demo/"> Interest Form </a>
                   </div>
                   <!-- .ancestor-wrapper -->
                 </li>
@@ -891,13 +919,13 @@
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
                   id="menu-item-999"
                 >
-                  <a href="/case-studies/">Success Stories</a>
+                  <a href="/case-studies/"> Success Stories </a>
                 </li>
                 <li
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-814"
                 >
                   <div class="ancestor-wrapper">
-                    <a href="/how-we-work/">How We Work</a>
+                    <a href="/how-we-work/"> How We Work </a>
                   </div>
                   <!-- .ancestor-wrapper -->
                 </li>
@@ -905,16 +933,16 @@
                   class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-788"
                 >
                   <div class="ancestor-wrapper">
-                    <a href="#">Meet xSoTec</a
-                    ><button
+                    <a href="#"> Meet xSoTec </a>
+                    <button
                       aria-expanded="false"
                       class="toggle sub-menu-toggle fill-children-current-color"
                       data-toggle-duration="250"
                       data-toggle-target=".menu-modal .menu-item-788 &gt; .sub-menu"
                       data-toggle-type="slidetoggle"
                     >
-                      <span class="screen-reader-text">Show sub menu</span
-                      ><svg
+                      <span class="screen-reader-text"> Show sub menu </span>
+                      <svg
                         aria-hidden="true"
                         class="svg-icon"
                         focusable="false"
@@ -939,7 +967,7 @@
                       class="menu-item menu-item-type-post_type menu-item-object-page menu-item-177"
                     >
                       <div class="ancestor-wrapper">
-                        <a href="/about/">Our Story</a>
+                        <a href="/about/"> Our Story </a>
                       </div>
                       <!-- .ancestor-wrapper -->
                     </li>
@@ -947,7 +975,7 @@
                       class="menu-item menu-item-type-post_type menu-item-object-page menu-item-65"
                     >
                       <div class="ancestor-wrapper">
-                        <a href="/contact/">Contact Us</a>
+                        <a href="/contact/"> Contact Us </a>
                       </div>
                       <!-- .ancestor-wrapper -->
                     </li>
@@ -955,7 +983,7 @@
                       class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1026"
                     >
                       <div class="ancestor-wrapper">
-                        <a href="/xsotec-blog/">Blog</a>
+                        <a href="/xsotec-blog/"> Blog </a>
                       </div>
                       <!-- .ancestor-wrapper -->
                     </li>
@@ -974,47 +1002,27 @@
     </div>
     <!--#site-header-end-->
     <main id="site-content">
-      <article
-        class="post-977 page type-page status-publish hentry"
-        id="post-977"
-      >
+      <article class="page type-page status-publish hentry">
         <div class="post-inner">
-          <div class="entry-content">
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-              "
-            >
-              <h5 style="color: teal; margin: inherit; font-size: 2rem">404</h5>
-              <h1 style="margin: 10px 10px; font-size: 4rem !important">
-                Page Not Found
-              </h1>
-              <h5
-                style="text-align: center; font-weight: 500; margin: 25px 10px"
-              >
-                While you may not be on the right page, you are on the right
-                website. Learn how xSoTec can help you design the perfect system
-                by navigating back to our frontpage.
-              </h5>
-              <div class="wp-block-button">
-                <a
-                  class="wp-block-button__link wp-element-button"
-                  href="/"
-                  title="While this page is nice, the frontpage is nicer, I promise. Thanks :)"
-                  >Home</a
-                >
-              </div>
-            </div>
+          <div class="entry-content has-text-align-center">
+            <h1>Thank You!</h1>
+            <p>Thank you so much for filling out our interest form!</p>
+            <p>
+              We will be reaching out shortly to discuss next steps, namely
+              planning our (free!) introduction meeting. You can expect an email
+              in 1-2 business days.
+            </p>
+            <p>
+              We look forward to meeting you and working to make your
+              organization more flexible, scalable and efficient through a
+              combination of your creative ideas and the power of Google Sheets.
+            </p>
+            <p class="has-text-align-right" style="color: gray">
+              —xSoTec Team
+            </p>
           </div>
         </div>
-        <!-- .entry-content -->
-        <!-- .post-inner -->
       </article>
-      <!-- .post -->
     </main>
     <!-- #site-header -->
     <div
@@ -1029,51 +1037,51 @@
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-977 current_page_item menu-item-1012"
                 id="menu-item-1012"
               >
-                <a href="/">Home</a>
+                <a href="/"> Home </a>
               </li>
               <li
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-999"
                 id="menu-item-999"
               >
-                <a href="/custom-development/">Custom Development</a>
+                <a href="/custom-development/"> Custom Development </a>
               </li>
               <li
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975"
                 id="menu-item-975"
               >
-                <a href="/transform-your-sheets/"
-                  >Organize &amp; Automate Your Sheets</a
-                >
+                <a href="/transform-your-sheets/">
+                  Organize &amp; Automate Your Sheets
+                </a>
               </li>
               <li
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-828"
                 id="menu-item-828"
               >
-                <a href="/request-a-demo/">Interest Form</a>
+                <a href="/request-a-demo/"> Interest Form </a>
               </li>
               <li
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975"
                 id="menu-item-975"
               >
-                <a href="/how-we-work/">How We Work</a>
+                <a href="/how-we-work/"> How We Work </a>
               </li>
               <li
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-975"
                 id="menu-item-975"
               >
-                <a href="/about/">Our Story</a>
+                <a href="/about/"> Our Story </a>
               </li>
               <li
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1067"
                 id="menu-item-1067"
               >
-                <a href="/privacy-policy/">Privacy Policy</a>
+                <a href="/privacy-policy/"> Privacy Policy </a>
               </li>
               <li
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1542"
                 id="menu-item-1542"
               >
-                <a href="/terms-conditions/">Terms &amp; Conditions</a>
+                <a href="/terms-conditions/"> Terms &amp; Conditions </a>
               </li>
             </ul>
           </nav>
@@ -1085,26 +1093,34 @@
       <footer class="header-footer-group" id="site-footer">
         <div class="section-inner">
           <div class="footer-credits">
-            <p class="footer-copyright">© 2026 <a href="/">xSoTec</a></p>
+            <p class="footer-copyright">
+              © 2026
+              <a href="/"> xSoTec </a>
+            </p>
             <div class="footer-links">
-              <a href="https://www.linkedin.com/company/xsotec" target="_blank"
-                ><i class="fa-brands fa-linkedin"></i
-              ></a>
-              <a href="https://www.facebook.com/xsotec/" target="_blank"
-                ><i class="fa-brands fa-square-facebook"></i
-              ></a>
+              <a href="https://www.linkedin.com/company/xsotec" target="_blank">
+                <i class="fa-brands fa-linkedin"> </i>
+              </a>
+              <a href="https://www.facebook.com/xsotec/" target="_blank">
+                <i class="fa-brands fa-square-facebook"> </i>
+              </a>
             </div>
             <!-- .footer-copyright -->
           </div>
           <!-- .footer-credits -->
           <a class="to-the-top" href="#site-header">
             <span class="to-the-top-long">
-              To the top <span aria-hidden="true" class="arrow">↑</span> </span
-            ><!-- .to-the-top-long -->
+              To the top
+              <span aria-hidden="true" class="arrow"> ↑ </span>
+            </span>
+            <!-- .to-the-top-long -->
             <span class="to-the-top-short">
-              Up <span aria-hidden="true" class="arrow">↑</span> </span
-            ><!-- .to-the-top-short --> </a
-          ><!-- .to-the-top -->
+              Up
+              <span aria-hidden="true" class="arrow"> ↑ </span>
+            </span>
+            <!-- .to-the-top-short -->
+          </a>
+          <!-- .to-the-top -->
         </div>
         <!-- .section-inner -->
       </footer>
@@ -1166,6 +1182,7 @@
         leftLabel: "Previous",
         rightLabel: "Next",
       };
+      //# sourceURL=coblocks-lightbox-js-extra
     </script>
     <script
       id="coblocks-lightbox-js"
@@ -1181,6 +1198,7 @@
         carouselNextButtonAriaLabel: "Next",
         sliderImageAriaLabel: "Image",
       };
+      //# sourceURL=coblocks-tinyswiper-initializer-js-extra
     </script>
     <script
       id="coblocks-tinyswiper-initializer-js"
@@ -1336,6 +1354,7 @@
                 ? r(t.concatemoji)
                 : t.wpemoji && t.twemoji && (r(t.twemoji), r(t.wpemoji))));
         }));
+      //# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
     </script>
   </body>
 </html>
