@@ -461,7 +461,17 @@
     </script>
     <!-- Event snippet for Interest Form Submission conversion page -->
     <script>
-      gtag('event', 'conversion', {'send_to': 'AW-11551650356/l2-zCP3Q2eEcELTkoIQr'});
+      var allowedDomains = ["xsotec.com", "www.xsotec.com"];
+
+      if (allowedDomains.indexOf(window.location.hostname) !== -1) {
+        gtag("event", "conversion", {
+          send_to: "AW-11551650356/l2-zCP3Q2eEcELTkoIQr",
+        });
+      } else {
+        console.log(
+          "Testing environment detected: Google Tag loading blocked.",
+        );
+      }
     </script>
     <link href="/wp-json/" rel="https://api.w.org/" />
     <link
@@ -1017,9 +1027,7 @@
               organization more flexible, scalable and efficient through a
               combination of your creative ideas and the power of Google Sheets.
             </p>
-            <p class="has-text-align-right" style="color: gray">
-              —xSoTec Team
-            </p>
+            <p class="has-text-align-right" style="color: gray">—xSoTec Team</p>
           </div>
         </div>
       </article>
