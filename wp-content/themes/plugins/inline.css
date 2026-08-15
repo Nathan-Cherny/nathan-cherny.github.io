@@ -913,7 +913,7 @@ ul {
 .is-content-justification-center{
   display:flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center !important;
 }
 
 /*# sourceURL=/wp-content/plugins/twentig/dist/blocks/columns/block.css */
