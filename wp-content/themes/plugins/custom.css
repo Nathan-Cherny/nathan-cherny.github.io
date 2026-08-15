@@ -837,7 +837,8 @@ body .wp-site-blocks select {
 }
 /*# sourceURL=core-block-supports-inline-css */
 
-/* Ensure the outer columns wrapper stretches its children */
+/* Ensure the outer columns wrapper stretches its children */ 
+
 .testimonial-cards {
   align-items: stretch !important;
 }

@@ -406,7 +406,6 @@ hr {
   margin: 4rem 0;
 }
 
-
 .entry-content hr:not(.has-background),
 hr.styled-separator {
   color: #6d6d6d;
@@ -3719,7 +3718,8 @@ figure.wp-block-table.is-style-stripes {
   margin-bottom: 1.5rem !important;
 }
 
-.entry-content > .wp-block-columns.alignwide:nth-of-type(odd) {
+.entry-content
+  > :nth-child(odd of .wp-block-columns.alignwide, .testimonial-card) {
   background: var(--brand-tint);
 }
 
@@ -6016,7 +6016,7 @@ a.to-the-top > * {
     font-size: 1.8rem;
     padding: 4.3rem 0;
   }
-  
+
   .footer-credits {
     display: flex;
     gap: 15px;

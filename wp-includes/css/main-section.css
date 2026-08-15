@@ -562,7 +562,7 @@
 .testimonial-quote {
   font-size: 2.5rem;
   font-family: 'Inter var';
-  border-left: 3px solid #00f0ff;
+  border-left: 3px solid skyblue;
   padding-left: 20px;
   font-style: italic;
 }
@@ -586,8 +586,10 @@
 .testimonial-card {
   display: flex;
   align-items: center;
-  margin: 2% auto;
   gap: 10%;
+  padding: 2% 25%;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .testimonial-card .testimonial-quote {
