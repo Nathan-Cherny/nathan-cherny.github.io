@@ -1268,3 +1268,30 @@ body .wp-site-blocks select {
 .hww-interest-section .wp-block-column:first-child{
   margin-top: 25px !important;
 }
+
+/* interest form */
+
+.interest-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.interest-form button[type=submit]{
+  width: 20%;
+  margin: 5% auto 0px;
+  border-radius: 5px;
+}
+
+.interest-form label.required::after{
+  content: " *";
+  color: red;
+}
+
+.interest-form label{
+  font-size: 2rem
+}
+
+.interest-form input, textarea{
+  margin-bottom: 2rem;
+  resize: none;
+}
