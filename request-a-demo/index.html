@@ -534,6 +534,48 @@
         console.log("Testing environment detected: GTM blocked.");
       }
     </script>
+
+    <script type="text/javascript">
+      const DEPLOYMENT = `
+       https://script.google.com/macros/s/AKfycbwR5zY3mWG1SGEd8p7P0F_on7x4WmLIjBGlffTLRZy_uDhzwNksuXl3aTQnib5r14Ea/exec
+        `;
+
+      function reportConversionAndRedirect() {
+        window.location.href = "/thank-you";
+      }
+
+      function onFormSubmit(e) {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const payload = {};
+        formData.forEach((value, key) => {
+          payload[key] = value;
+        });
+
+        fetch(DEPLOYMENT, {
+          method: "POST",
+          mode: "no-cors",
+          credentials: "include",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify(payload),
+        })
+          .then((e) => {
+            console.log(e);
+            reportConversionAndRedirect();
+          })
+          .catch((err) => console.error("Network error:", err));
+      }
+
+      function addFormFunctionality() {
+        document
+          .querySelector("#interest-form")
+          .addEventListener("submit", onFormSubmit);
+      }
+    </script>
+
     <!-- End Google Tag Manager snippet (Domain Restricted) -->
     <style id="uagb-style-conditional-extension">
       @media (min-width: 1025px) {
@@ -602,6 +644,7 @@
     />
   </head>
   <body
+    onload="addFormFunctionality()"
     class="wp-singular page-template page-template-tw-no-title page-template-tw-no-title-php page page-id-722 custom-background wp-custom-logo wp-embed-responsive wp-theme-twentytwenty is-twentytwenty singular has-no-pagination not-showing-comments show-avatars tw-no-title footer-top-visible reduced-spacing tw-header-sticky tw-header-border tw-site-font-large tw-nav-hover-border modal-socials-hidden tw-footer-size-medium"
   >
     <!-- Google Tag Manager (noscript) snippet added by Site Kit -->
@@ -1033,22 +1076,35 @@
               Only once we have sent you a quote will you need to decide if a
               partnership with xSoTec is right for you.
             </p>
-            <iframe
-              frameborder="0"
-              height="1370"
-              marginheight="0"
-              marginwidth="0"
-              src="https://docs.google.com/forms/d/e/1FAIpQLSdozbA7ZrxWcyiOT0e2wW9YORURVoRwBCuIYq5Xxd67nRKplQ/viewform?embedded=true"
-              width="840"
-            >
-              Loading…
-            </iframe>
+
+            <hr />
+
+            <form class="interest-form" id="interest-form">
+              <label class="required">Email</label>
+              <input type="email" name="Email Address" required />
+
+              <label class="required">Name</label>
+              <input type="text" name="Name" required />
+
+              <label>Organization Name</label>
+              <input type="text" name="Organization Name" />
+
+              <label>Job Title</label>
+              <input type="text" name="Job Title" />
+
+              <label>Phone Number</label>
+              <input type="text" name="Phone number" />
+
+              <label>How Can We Help You?</label>
+              <textarea name="How can we help you?"></textarea>
+
+              <button type="submit">Submit</button>
+            </form>
 
             <p style="margin-top: 5%; text-align: center">
               Thank you :) We are excited to work with you soon!
             </p>
           </div>
-
           <!-- .entry-content -->
         </div>
         <!-- .post-inner -->
