@@ -547,6 +547,16 @@
       function onFormSubmit(e) {
         e.preventDefault();
 
+        const submitButton = e.target.querySelector('button[type="submit"]');
+        const loadingOverlay = document.getElementById("loading-overlay");
+
+        submitButton.disabled = true;
+        submitButton.innerText = "Please wait...";
+
+        if (loadingOverlay) {
+          loadingOverlay.style.display = "flex";
+        }
+
         const formData = new FormData(e.target);
         const payload = {};
         formData.forEach((value, key) => {
@@ -1111,6 +1121,14 @@
       </article>
       <!-- .post -->
     </main>
+    <div id="loading-overlay">
+      <img
+        src="https://i.imgur.com/QriJTru.gif"
+        alt="xSoTecLoad"
+        class="coolxSoTecLoadingGif"
+      />
+      <p>Submitting your form...</p>
+    </div>
     <!-- #site-header -->
     <div
       class="footer-nav-widgets-wrapper header-footer-group"
