@@ -4907,9 +4907,8 @@ a.to-the-top > * {
     display: none !important;
   }
 
-  img:not(.important-img) {
+  img:not(.important-img):not(:is(.coblocks-lightbox__image > img)):not(.custom-logo):not(.nav-partner-img) {
     display: none;
-    /* max-width: 200px !important; */
   }
 }
 
