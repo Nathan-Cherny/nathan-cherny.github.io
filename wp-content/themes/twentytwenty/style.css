@@ -1853,7 +1853,7 @@ button.close-nav-toggle .toggle-text {
 .modal-menu > li > a,
 .modal-menu > li > .ancestor-wrapper > a {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: -0.0375em;
 }
 
@@ -4643,6 +4643,7 @@ div.comment:first-of-type {
 .footer-top,
 .footer-widgets-outer-wrapper,
 #site-footer {
+  color: white;
   padding: 3rem 0;
 }
 
@@ -4906,8 +4907,9 @@ a.to-the-top > * {
     display: none !important;
   }
 
-  img {
-    max-width: 200px !important;
+  img:not(.important-img) {
+    display: none;
+    /* max-width: 200px !important; */
   }
 }
 
@@ -6012,7 +6014,6 @@ a.to-the-top > * {
 
   #site-footer {
     background-color: inherit !important;
-    color: white;
     font-size: 1.8rem;
     padding: 4.3rem 0;
   }
