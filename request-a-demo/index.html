@@ -544,8 +544,24 @@
         window.location.href = "/thank-you";
       }
 
+      let pageLoadTime;
+
       function onFormSubmit(e) {
         e.preventDefault();
+
+        const honeypotValue = document.getElementById("website_url").value;
+        if (honeypotValue) {
+          console.warn("Spam blocked: Honeypot filled.");
+          e.target.reset()
+          return;
+        }
+
+        const timeElapsed = (Date.now() - pageLoadTime) / 1000;
+        if (timeElapsed < 2) {
+          console.warn("Spam blocked: Form submitted too quickly.");
+          e.target.reset()
+          return;
+        }
 
         const submitButton = e.target.querySelector('button[type="submit"]');
         const loadingOverlay = document.getElementById("loading-overlay");
@@ -576,10 +592,22 @@
             console.log(e);
             reportConversionAndRedirect();
           })
-          .catch((err) => console.error("Network error:", err));
+          .catch((err) => {
+            console.error("Network error:", err);
+            if (loadingOverlay) {
+              loadingOverlay.style.display = "none";
+            }
+            submitButton.disabled = false;
+            submitButton.innerText = "Submit";
+
+            alert(
+              "There was a network error submitting your form. Please try again.",
+            );
+          });
       }
 
       function addFormFunctionality() {
+        pageLoadTime = Date.now();
         document
           .querySelector("#interest-form")
           .addEventListener("submit", onFormSubmit);
@@ -1090,6 +1118,19 @@
             <hr />
 
             <form class="interest-form" id="interest-form">
+              <div style="display: none" aria-hidden="true">
+                <label for="website_url"
+                  >Leave this field blank if you are human</label
+                >
+                <input
+                  type="text"
+                  name="website_url"
+                  id="website_url"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+
               <label class="required">Email</label>
               <input type="email" name="Email Address" required />
 
