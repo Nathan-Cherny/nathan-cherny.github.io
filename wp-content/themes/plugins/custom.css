@@ -1286,7 +1286,8 @@ body .wp-site-blocks select {
   border-radius: 5px;
 }
 
-.interest-form label.required::after {
+.interest-form label.required::after,
+.interest-form textarea.required::after  {
   content: " *";
   color: red;
 }
