@@ -1,0 +1,683 @@
+/* Main Section */
+
+.main-section {
+  width: 100% !important;
+  margin: 0;
+  max-width: 100% !important;
+  background-color: rgba(20, 50, 50);
+  color: white;
+}
+
+.main-section h1 {
+  font-size: 38px;
+  width: 100%;
+}
+
+
+/* ==========================================================================
+   Hero Columns — text + carousel side-by-side
+   Fix: the carousel block used to carry "alignfull", which forces
+   width: 100vw and breaks it out of the flex row, crushing the text
+   column down to ~0px (that's what caused the vertical letter-wrapping).
+   The HTML has been updated to drop "alignfull" and wrap the carousel
+   in its own .hero-carousel-column; these rules control the split.
+   ========================================================================== */
+
+.hero-columns.wp-block-columns {
+  display: flex !important;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 10px 4% !important;
+}
+
+.hero-text-column {
+  flex: 0 0 44%;
+  max-width: 44%;
+}
+
+.hero-text-column h1 {
+  font-size: 3rem;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.hero-text-column p {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-carousel-column {
+  flex: 0 0 56%;
+  max-width: 45%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.hero-carousel-column .wp-block-coblocks-gallery-carousel {
+  width: 100%;
+}
+
+.hero-carousel-column .coblocks-gallery-carousel-swiper-container {
+  width: 100% !important;
+}
+
+/* The swiper JS sets an inline height (450px) directly on this element,
+   which beats normal CSS specificity — !important is needed to shrink it. */
+.hero-carousel-column .has-carousel {
+  height: 380px !important;
+}
+
+/* Make every slide fill the full height of the carousel, and scale each
+   image down to fit inside it completely (object-fit: contain) instead
+   of being cropped or stretched. Portrait and landscape screenshots will
+   both be fully visible, letterboxed on the narrow axis as needed. */
+.hero-carousel-column .swiper-wrapper,
+.hero-carousel-column .swiper-slide {
+  height: 100%;
+}
+
+.hero-carousel-column .coblocks-gallery--item,
+.hero-carousel-column .coblocks-gallery--figure {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-carousel-column .coblocks-gallery--figure img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit:scale-down !important;
+}
+
+/* Stack vertically on smaller screens instead of squeezing side-by-side */
+@media screen and (max-width: 900px) {
+  .hero-columns.wp-block-columns {
+    flex-direction: column;
+    padding: 40px 5% !important;
+  }
+
+  .hero-text-column,
+  .hero-carousel-column {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .hero-carousel-column .has-carousel {
+    height: 280px !important;
+  }
+}
+
+
+/* ==========================================================================
+   Hero Section (legacy — not used by current .hero-columns layout above,
+   left in place in case other pages still reference it)
+   ========================================================================== */
+.hero-section {
+  /* background: linear-gradient(180deg, #001220 0%, #001f36 100%); */
+  margin: 0;
+  max-width: 100% !important;
+  padding: 2% 4%;
+  text-align: center;
+}
+
+.hero-container {
+  max-width: 75%;
+  margin: 0 auto;
+}
+
+.partner-badge-img {
+  height: auto;
+  max-height: 48px;
+  margin: 0 auto 24px auto;
+  display: block;
+}
+
+.hero-badge {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #00f0ff;
+  margin-bottom: 24px;
+}
+
+/* Hero Body Split Layout */
+
+.hero-body {
+  display: flex;
+  align-items: center; /* Vertically centers the text and video as a pair */
+  gap: 40px; /* Adds breathing room between the text and video */
+  text-align: left; /* Overrides the hero section's center alignment */
+}
+
+/* Make the paragraph take up exactly half the space */
+.hero-body p {
+  flex: 1.5;
+  font-size: 85%;
+  text-align: center;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.hero-body .video-wrapper-small {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0;
+}
+
+/* Stack them on top of each other on mobile devices */
+@media screen and (max-width: 768px) {
+  .hero-body {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-body .video-wrapper-small {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+.media-highlight-block {
+  max-width: 320px;
+  margin: 0 auto 48px auto;
+}
+
+.venn-diagram-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Video Containers
+   ========================================================================== */
+.video-wrapper,
+.video-wrapper-small,
+.video-wrapper-vertical {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  background: #000000;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-wrapper-main-intro {
+  height: 250px;
+  width: 400px !important;
+}
+.video-wrapper {
+  padding-bottom: 56.25%;
+  max-width: 100%;
+  margin: 0 auto 40px auto;
+}
+.video-wrapper-small {
+  padding-bottom: 56.25%;
+  margin-bottom: 20px;
+}
+.video-wrapper-vertical {
+  padding-bottom: 177.77%;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.video-wrapper iframe,
+.video-wrapper-small iframe,
+.video-wrapper-vertical iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================================
+   Architecture Section (Condensed Framework Layout)
+   ========================================================================== */
+.architecture-section {
+  margin-top: 60px !important;
+  padding: 0px 2% 3%;
+  margin: 0;
+  background-image: linear-gradient(324deg, rgb(6, 147, 227) 0%, rgb(1, 1, 1) 100%);
+  width: 100% !important;
+  max-width: 100% !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.architecture-diagram {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 2fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.diagram-arrow {
+  font-size: 48px;
+  color: #475569;
+  font-weight: 500;
+  user-select: none;
+  color: #ffffff;
+  display: flex;
+}
+
+.column-label {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1.25px;
+  text-align: center;
+}
+
+.sheets-ring-column {
+  display: flex;
+  justify-content: center;
+}
+
+.sheets-ring {
+  flex-direction: column;
+  margin-top: -50px;
+  width: 250px;
+  height: 250px;
+  position: relative;
+  border: 2px dashed rgba(2, 34, 14, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 40px rgba(34, 197, 94, 0.05);
+}
+
+.ring-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 5;
+}
+
+.ring-center-img {
+  width: 60px;
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+}
+
+.ring-center span {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.ring-icon img {
+  width: 24px;
+  border-radius: 0px !important;
+  height: 24px;
+  object-fit: contain;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+  color: black;
+}
+
+/* Dynamic Satellite Orbit Positioning */
+
+.ring-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px; /* Perfectly locks the anchor to the dead center of the ring */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Spins out to the angle, moves out 100px, then spins back to stay upright */
+  transform: rotate(var(--angle)) translate(125px) rotate(var(--reverse-angle));
+  transition: transform 0.2s ease;
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* Position text uniformly below every icon */
+.ring-icon span {
+  position: absolute;
+  top: 100%; /* Drops text directly below the icon */
+  left: 50%;
+  transform: translateX(-50%); /* Centers the text */
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #cbd5e1;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  background: rgba(
+    0,
+    18,
+    32,
+    0.85
+  ); /* Dark pill background to hide the dashed ring line */
+  padding: 2px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* xSoTec Power Tools */
+
+.tool-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tool-item {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #cbd5e1;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+}
+
+/* Scalable, Automated Systems for Schools and More styling */
+
+.scalable-systems-column {
+  background: rgba(255, 255, 155, 0);
+  /* box-shadow: 0 0 40px rgba(200, 240, 255, 0.08); */
+  padding: 15px;
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.scalable-systems-outputs-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.scalable-systems-output-pill {
+  background: rgba(52, 184, 107, 0.75);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  padding: 8px 12px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+/* Hover State */
+.scalable-systems-output-pill:hover {
+  background: rgba(50, 172, 75, 0.75);
+}
+
+/* Active/Selected State */
+.scalable-systems-output-pill.active {
+  border-color: #00f0ff;
+  color: #ffffff;
+}
+
+.scalable-systems-output-pill.emphasis-pill {
+  background: transparent;
+  border-color: transparent;
+  cursor: default;
+  box-shadow: none;
+  color: #ffffff;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Content Grids (Features, Commercial, Capabilities)
+   ========================================================================== */
+.features-section,
+.commercial-section,
+.capabilities-section,
+.story-section,
+.testimonial-section {
+  padding: 80px 4%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.commercial-section {
+  background-color: #000b14;
+}
+.story-section {
+  background-color: #0477d6;
+  width: 100%;
+}
+
+.section-title,
+.commercial-text-content h2,
+.capabilities-section h2,
+.story-content h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+.features-grid,
+.commercial-box-grid,
+.testimonial-grid {
+  display: grid;
+  gap: 40px;
+}
+
+.features-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.commercial-box-grid {
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+}
+.testimonial-grid {
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.feature-card p,
+.commercial-text-content p,
+.story-content p {
+  color: #cbd5e1;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.card-link,
+.card-link-white {
+  color: #00f0ff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  border-bottom: 1px solid #00f0ff;
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+.card-link:hover,
+.card-link-white:hover {
+  opacity: 0.7;
+}
+
+/* Lists & Story */
+.capability-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+.capability-list li {
+  font-size: 16px;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #e2e8f0;
+}
+
+.story-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.lead-text {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #00f0ff;
+}
+
+/* Testimonials */
+.testimonial-quote {
+  font-size: 2.5rem;
+  font-family: 'Inter var';
+  border-left: 3px solid skyblue;
+  padding-left: 20px;
+  font-style: italic;
+}
+.testimonial-embed-img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+.testimonial-quote cite {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  color: #94a3b8;
+  margin-top: 15px;
+}
+
+/* Side-by-side testimonial card (photo + quote), built on top of the
+   existing .testimonial-quote / cite styles above. */
+.testimonial-card {
+  display: flex;
+  align-items: center;
+  gap: 10%;
+  padding: 2% 25%;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.testimonial-card .testimonial-quote {
+  margin: 0;
+}
+
+.testimonial-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(0, 240, 255, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 600px) {
+  .testimonial-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .testimonial-card .testimonial-quote {
+    border-left: none;
+    border-top: 3px solid #00f0ff;
+    padding-left: 0;
+    padding-top: 18px;
+  }
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media screen and (max-width: 960px) {
+  .architecture-diagram {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .diagram-arrow {
+    transform: rotate(90deg);
+    margin: 10px 0;
+  }
+  .minimal-title {
+    font-size: 34px;
+  }
+  .commercial-box-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .nav-links > a,
+  .dropdown .dropbtn {
+    margin-left: 0;
+    justify-content: center;
+  }
+  .nav-links .btn-cta {
+    margin-left: 0;
+    width: 100%;
+  }
+  .dropdown-content {
+    position: relative;
+    transform: none;
+    left: 0;
+    box-shadow: none;
+    border: none;
+    background: #f8fafc;
+    width: 100%;
+  }
+  .dropdown-content a {
+    text-align: center;
+  }
+
+  .hero-section h1 {
+    font-size: 38px;
+  }
+  .ecosystem-ring {
+    transform: scale(0.9);
+  }
+}

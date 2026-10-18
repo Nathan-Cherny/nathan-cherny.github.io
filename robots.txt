@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://xsotec.com/sitemap.xml
