@@ -488,7 +488,15 @@
         const formData = new FormData(e.target);
         const payload = {};
         formData.forEach((value, key) => {
-          payload[key] = value;
+          if (key == "How can we help you?") {
+            payload[key] = Array.from(
+              document.getElementById("howCanHelp").selectedOptions,
+            )
+              .map((option) => option.value)
+              .join("\n");
+          } else {
+            payload[key] = value;
+          }
         });
 
         fetch(DEPLOYMENT, {
@@ -518,11 +526,22 @@
           });
       }
 
+      function selectMeSelect(e) {
+        if (e.target.tagName != "OPTION") return;
+        e.preventDefault();
+        e.target.selected = !e.target.selected;
+        this.focus();
+        this.dispatchEvent(new Event("change"));
+      }
+
       function addFormFunctionality() {
         pageLoadTime = Date.now();
+        let interest_form = document.querySelector("#interest-form");
+        interest_form.addEventListener("submit", onFormSubmit);
+
         document
-          .querySelector("#interest-form")
-          .addEventListener("submit", onFormSubmit);
+          .getElementById("howCanHelp")
+          .addEventListener("mousedown", selectMeSelect);
       }
 
       document.addEventListener("DOMContentLoaded", addFormFunctionality);
@@ -997,13 +1016,56 @@
               <input type="text" name="Phone number" />
 
               <label class="required">How Can We Help You?</label>
-              <textarea
+              <i>I need...</i>
+              <select
                 name="How can we help you?"
                 placeholder=""
+                multiple
+                id="howCanHelp"
                 required
+              >
+                <option>
+                  A new system for managing my school's data (grades,
+                  demographics, etc.)
+                </option>
+                <option>
+                  Organization and automation of my existing Google Sheets
+                </option>
+                <option>
+                  A working prototype to design my student information system
+                </option>
+                <option>
+                  A way to automate creation of report cards and send them to
+                  guardians
+                </option>
+                <option>
+                  An automated process to aggregate data from multiple different
+                  sources
+                </option>
+                <option>
+                  A powerful Google Apps Script library to automate custom
+                  functions
+                </option>
+                <option>
+                  A conversation to discover what xSoTec can do for my
+                  organization!
+                </option>
+              </select>
+
+              <label class=""
+                >Is there any other information you'd like to share?</label
+              >
+              <textarea
+                name="optionalComments"
+                placeholder=""
+                required=""
               ></textarea>
 
-              <div class="cf-turnstile" data-sitekey="0x4AAAAAAEfpCp6WEC6LF8BV" style="margin-bottom: 15px; margin: auto;"></div>
+              <div
+                class="cf-turnstile"
+                data-sitekey="0x4AAAAAAEfpCp6WEC6LF8BV"
+                style="margin-bottom: 15px; margin: auto"
+              ></div>
 
               <button type="submit">Submit</button>
             </form>

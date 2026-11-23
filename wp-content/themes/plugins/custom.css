@@ -1297,10 +1297,37 @@ body .wp-site-blocks select {
 }
 
 .interest-form input,
-textarea {
+textarea, select {
   margin-bottom: 2rem;
   resize: none;
 }
+
+.interest-form select{
+  padding: 15px;
+  field-sizing: content;
+  scrollbar-width: none;
+}
+
+.interest-form select::-webkit-scrollbar{
+  display: none;
+}
+
+.interest-form select option{
+  padding: 5px;
+  transition: 0.15s all;
+  cursor: pointer;
+}
+
+.interest-form select option:hover{
+  background-color: #ccc;
+}
+
+.interest-form select option:checked{
+  background-color: #0060ff;
+  color: #fff;
+  margin: 2.5px 0px;
+}
+
 
 /* interest form loading screen */
 
