@@ -449,8 +449,8 @@
       type="text/javascript"
     >
       const DEPLOYMENT = `
-       https://script.google.com/macros/s/AKfycbwoTtOFjoKR5baCtoWw7xkXl3np8x-PQeOOZ-BR4wo_i-udIYgDv-cVnPivKWDVfL5Y/exec
-        `;
+   https://script.google.com/macros/s/AKfycbwoTtOFjoKR5baCtoWw7xkXl3np8x-PQeOOZ-BR4wo_i-udIYgDv-cVnPivKWDVfL5Y/exec
+    `;
 
       function thankyou() {
         window.location.href = "/thank-you";
@@ -475,6 +475,18 @@
           return;
         }
 
+        // Validate that at least one checkbox in "How can we help you?" is checked
+        const checkedHelpOptions = document.querySelectorAll(
+          '#howCanHelp input[type="checkbox"]:checked',
+        );
+        if (checkedHelpOptions.length === 0) {
+          alert(
+            'Please select at least one option under "How Can We Help You?".',
+          );
+          document.querySelector('#howCanHelp input[type="checkbox"]').focus();
+          return;
+        }
+
         const submitButton = e.target.querySelector('button[type="submit"]');
         const loadingOverlay = document.getElementById("loading-overlay");
 
@@ -488,12 +500,9 @@
         const formData = new FormData(e.target);
         const payload = {};
         formData.forEach((value, key) => {
-          if (key == "How can we help you?") {
-            payload[key] = Array.from(
-              document.getElementById("howCanHelp").selectedOptions,
-            )
-              .map((option) => option.value)
-              .join("\n");
+          if (key === "How can we help you?") {
+            // Join all checked values with a newline, matching the original <select> output
+            payload[key] = formData.getAll("How can we help you?").join("\n");
           } else {
             payload[key] = value;
           }
@@ -508,8 +517,8 @@
           },
           body: JSON.stringify(payload),
         })
-          .then((e) => {
-            console.log(e);
+          .then((res) => {
+            console.log(res);
             thankyou();
           })
           .catch((err) => {
@@ -526,22 +535,10 @@
           });
       }
 
-      function selectMeSelect(e) {
-        if (e.target.tagName != "OPTION") return;
-        e.preventDefault();
-        e.target.selected = !e.target.selected;
-        this.focus();
-        this.dispatchEvent(new Event("change"));
-      }
-
       function addFormFunctionality() {
         pageLoadTime = Date.now();
-        let interest_form = document.querySelector("#interest-form");
+        const interest_form = document.querySelector("#interest-form");
         interest_form.addEventListener("submit", onFormSubmit);
-
-        document
-          .getElementById("howCanHelp")
-          .addEventListener("mousedown", selectMeSelect);
       }
 
       document.addEventListener("DOMContentLoaded", addFormFunctionality);
@@ -1015,42 +1012,100 @@
               <label>Phone Number</label>
               <input type="text" name="Phone number" />
 
-              <label class="required">How Can We Help You?</label>
-              <i>I need...</i>
-              <select
-                name="How can we help you?"
-                placeholder=""
-                multiple
-                id="howCanHelp"
-                required
+              <label class="required" id="howCanHelpLabel"
+                >How Can We Help You?</label
               >
-                <option>
-                  A new system for managing my school's data (grades,
-                  demographics, etc.)
-                </option>
-                <option>
-                  Organization and automation of my existing Google Sheets
-                </option>
-                <option>
-                  A working prototype to design my student information system
-                </option>
-                <option>
-                  A way to automate creation of report cards and send them to
-                  guardians
-                </option>
-                <option>
-                  An automated process to aggregate data from multiple different
-                  sources
-                </option>
-                <option>
-                  A powerful Google Apps Script library to automate custom
-                  functions
-                </option>
-                <option>
-                  A conversation to discover what xSoTec can do for my
-                  organization!
-                </option>
-              </select>
+              <i>I need...</i>
+              <div
+                class="custom-multiselect"
+                id="howCanHelp"
+                role="group"
+                aria-labelledby="howCanHelpLabel"
+              >
+                <label class="multiselect-option">
+                  <input
+                    type="checkbox"
+                    name="How can we help you?"
+                    value="A new system for managing my school's data (grades, demographics, etc.)"
+                  />
+                  <span
+                    >A new system for managing my school's data (grades,
+                    demographics, etc.)</span
+                  >
+                </label>
+
+                <label class="multiselect-option">
+                  <input
+                    type="checkbox"
+                    name="How can we help you?"
+                    value="Organization and automation of my existing Google Sheets"
+                  />
+                  <span
+                    >Organization and automation of my existing Google
+                    Sheets</span
+                  >
+                </label>
+
+                <label class="multiselect-option">
+                  <input
+                    type="checkbox"
+                    name="How can we help you?"
+                    value="A working prototype to design my student information system"
+                  />
+                  <span
+                    >A working prototype to design my student information
+                    system</span
+                  >
+                </label>
+
+                <label class="multiselect-option">
+                  <input
+                    type="checkbox"
+                    name="How can we help you?"
+                    value="A way to automate creation of report cards and send them to guardians"
+                  />
+                  <span
+                    >A way to automate creation of report cards and send them to
+                    guardians</span
+                  >
+                </label>
+
+                <label class="multiselect-option">
+                  <input
+                    type="checkbox"
+                    name="How can we help you?"
+                    value="An automated process to aggregate data from multiple different sources"
+                  />
+                  <span
+                    >An automated process to aggregate data from multiple
+                    different sources</span
+                  >
+                </label>
+
+                <label class="multiselect-option">
+                  <input
+                    type="checkbox"
+                    name="How can we help you?"
+                    value="A powerful Google Apps Script library to automate custom functions"
+                  />
+                  <span
+                    >A powerful Google Apps Script library to automate custom
+                    functions</span
+                  >
+                </label>
+
+                <label class="multiselect-option">
+                  <input
+                    type="checkbox"
+                    name="How can we help you?"
+                    value="A conversation to discover what xSoTec can do for my organization!"
+                  />
+                  <span
+                    >A conversation to discover what xSoTec can do for my
+                    organization!</span
+                  >
+                </label>
+              </div>
 
               <label class=""
                 >Is there any other information you'd like to share?</label
@@ -1058,7 +1113,6 @@
               <textarea
                 name="optionalComments"
                 placeholder=""
-                required=""
               ></textarea>
 
               <div

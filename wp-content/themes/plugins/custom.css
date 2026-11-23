@@ -1287,7 +1287,7 @@ body .wp-site-blocks select {
 }
 
 .interest-form label.required::after,
-.interest-form textarea.required::after  {
+.interest-form textarea.required::after {
   content: " *";
   color: red;
 }
@@ -1297,11 +1297,12 @@ body .wp-site-blocks select {
 }
 
 .interest-form input,
-textarea, select {
+textarea,
+select {
   margin-bottom: 2rem;
   resize: none;
 }
-
+/* 
 .interest-form select{
   padding: 15px;
   field-sizing: content;
@@ -1326,8 +1327,99 @@ textarea, select {
   background-color: #0060ff;
   color: #fff;
   margin: 2.5px 0px;
+} */
+
+/* Custom Multiselect with Checkboxes */
+.custom-multiselect {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 15px;
+  margin-bottom: 2rem;
+  background-color: var(--wp--preset--color--base, #ffffff);
+  color: var(--wp--preset--color--contrast, #000000);
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--wp--preset--color--contrast, #000000) 30%,
+      transparent
+    );
 }
 
+.multiselect-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  margin: 0;
+  font-size: inherit !important; /* Overrides .interest-form label { font-size: 2rem; } if needed */
+  font-weight: normal;
+  cursor: pointer;
+  border-radius: 4px;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+  user-select: none;
+}
+
+.multiselect-option:hover {
+  background-color: #e6e6e6;
+}
+
+/* Highlight row when checked (matches your previous #0060ff style) */
+.multiselect-option:has(input[type="checkbox"]:checked) {
+  background-color: #0060ff;
+  color: #ffffff;
+}
+
+/* Custom Square Checkbox */
+.multiselect-option input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border: 2px solid #666666;
+  border-radius: 3px;
+  background-color: #ffffff;
+  place-content: center;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+/* Checkmark icon (hidden until checked) */
+.multiselect-option input[type="checkbox"]::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  margin: auto;
+  transform: scale(0);
+  transition: transform 0.12s ease-in-out;
+  background-color: #0060ff;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+/* Checked Checkbox State */
+.multiselect-option input[type="checkbox"]:checked {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+.multiselect-option input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+/* Keyboard focus accessibility */
+.multiselect-option input[type="checkbox"]:focus-visible {
+  outline: 2px solid #047eb3;
+  outline-offset: 2px;
+}
 
 /* interest form loading screen */
 
